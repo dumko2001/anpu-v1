@@ -11,14 +11,12 @@ export function FAQ() {
         <section id="faq" className="py-24 px-6 bg-secondary">
             <div className="max-w-4xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-16 text-center">
+                <div className="mb-16 text-center scroll-fade-up">
                     <span className="font-mono text-sm text-muted-foreground">04</span>
-                    <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground">
+                    <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                         Questions
                     </h2>
-                    <p className="mt-4 text-muted-foreground text-lg">
-                        & Answers
-                    </p>
+                    <p className="mt-4 text-muted-foreground text-lg">& Answers</p>
                 </div>
 
                 {/* FAQ Accordion */}
@@ -27,7 +25,7 @@ export function FAQ() {
                         <AccordionItem
                             key={index}
                             value={`item-${index}`}
-                            className="bg-card rounded-lg px-6 border-0 shadow-sm"
+                            className={`bg-card rounded-lg px-6 border-0 shadow-sm scroll-fade-up stagger-${index + 1}`}
                         >
                             <AccordionTrigger className="text-left font-display text-lg md:text-xl text-foreground hover:text-primary py-6">
                                 {item.question}

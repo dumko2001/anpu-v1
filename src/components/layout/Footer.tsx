@@ -1,6 +1,8 @@
-import Link from "next/link";
+"use client";
+
 import { SITE_CONFIG, getWhatsAppUrl } from "@/lib/constants";
 import { Separator } from "@/components/ui/separator";
+import { ScrambleText } from "@/components/common/ScrambleText";
 
 export function Footer() {
     return (
@@ -19,17 +21,19 @@ export function Footer() {
 
                     {/* Right: Contact info */}
                     <div className="flex flex-col gap-4 md:items-end">
-                        <Link
+                        <a
                             href={getWhatsAppUrl()}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="flex items-center gap-2 text-foreground hover:text-primary transition-colors"
                         >
-                            <span className="font-sans">WhatsApp</span>
-                        </Link>
+                            <span className="font-sans">Message on WhatsApp</span>
+                        </a>
                         <p className="text-muted-foreground font-sans">
                             {SITE_CONFIG.location.name}
                         </p>
                         <p className="font-mono text-sm text-primary">
-                            {SITE_CONFIG.location.coordinates.display}
+                            <ScrambleText text={SITE_CONFIG.location.coordinates.display} />
                         </p>
                     </div>
                 </div>
@@ -39,7 +43,7 @@ export function Footer() {
                 {/* Bottom strip */}
                 <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-muted-foreground">
                     <p>© {new Date().getFullYear()} {SITE_CONFIG.name}</p>
-                    <p className="font-sans">Designed with earth</p>
+                    <p className="font-sans">Built with earth, designed for seekers</p>
                 </div>
             </div>
         </footer>

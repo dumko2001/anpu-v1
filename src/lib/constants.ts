@@ -4,35 +4,47 @@ export const SITE_CONFIG = {
     tagline: "Rooted in Earth",
     description: "A rammed earth retreat near Auroville",
 
+    // Value proposition - clear offering
+    offering: {
+        headline: "Where stillness meets sustainable design",
+        subheadline: "Four rammed earth rooms in the Auroville bioregion",
+        features: [
+            "Handcrafted rammed earth architecture",
+            "Natural temperature regulation",
+            "Minutes from Auroville and Pondicherry",
+            "Designed by the architect of Adishakti",
+        ],
+    },
+
     // Contact (replace with real number when available)
     whatsapp: "91XXXXXXXXXX",
     email: "hello@anpu.in",
 
     // Location
     location: {
-        name: "Near Auroville, Pondicherry",
+        name: "Near Auroville, Tamil Nadu",
         state: "Tamil Nadu",
         country: "India",
         coordinates: {
             lat: 12.0076,
             lng: 79.8520,
-            display: "12°00'45.6\"N 79°51'12.3\"E",
+            display: "12°00'27.4\"N 79°51'07.2\"E",
         },
     },
 
     // Nearby places with distances
     nearbyPlaces: [
-        { name: "Auroville", distance: "3 km" },
-        { name: "Kalarigram", distance: "0.5 km" },
+        { name: "Kalarigram", distance: "500m" },
         { name: "Adishakti Theatre", distance: "1 km" },
-        { name: "Pondicherry", distance: "12 km" },
+        { name: "Auroville Visitor Centre", distance: "3 km" },
         { name: "Matrimandir", distance: "4 km" },
+        { name: "Pondicherry Beach", distance: "12 km" },
     ],
 
     // Social links
     social: {
         instagram: "https://instagram.com/anpu.retreat",
-        airbnb: "#", // Add when available
+        airbnb: "#", // Add your Airbnb URL here
     },
 } as const;
 
@@ -54,13 +66,13 @@ export const ROOMS: Room[] = [
         name: "The Suite",
         slug: "the-suite",
         description:
-            "Our largest room featuring a private kitchenette and spacious veranda. The rammed earth walls breathe naturally, keeping the space cool throughout the day.",
+            "Our most spacious room with a private kitchenette and generous veranda. The thick rammed earth walls breathe naturally, keeping the space cool by day and cozy by night. Perfect for longer stays or those who appreciate more room to spread out.",
         amenities: ["AC", "WiFi", "Hot Water", "Kitchenette", "Veranda"],
         images: [
             "/images/exterior/DSC08232 copy.jpg",
             "/images/exterior/DSC08237 copy.jpg",
         ],
-        cardRotation: "-2deg",
+        cardRotation: "-3deg",
         borderSide: "left",
     },
     {
@@ -68,13 +80,13 @@ export const ROOMS: Room[] = [
         name: "The Haven",
         slug: "the-haven",
         description:
-            "A peaceful single room with traditional craftsmanship and modern comforts. Wake up to natural light filtering through wooden shutters.",
+            "A peaceful single room where morning light filters through wooden shutters onto ochre walls. Traditional craftsmanship meets modern comfort in this cozy retreat, ideal for solo travelers or couples seeking simplicity.",
         amenities: ["AC", "WiFi", "Hot Water"],
         images: [
             "/images/exterior/DSC08213 copy.jpg",
             "/images/exterior/DSC08272 copy.jpg",
         ],
-        cardRotation: "1.5deg",
+        cardRotation: "2.5deg",
         borderSide: "top",
     },
     {
@@ -82,13 +94,13 @@ export const ROOMS: Room[] = [
         name: "The Sanctuary",
         slug: "the-sanctuary",
         description:
-            "Find your calm in this thoughtfully designed space. The ochre walls and dark wood furniture create a meditative atmosphere.",
+            "Find your center in this thoughtfully designed space. The warm ochre walls and dark wood furniture create a meditative atmosphere, while the turquoise accents remind you of the nearby coast. A room for reflection.",
         amenities: ["AC", "WiFi", "Hot Water"],
         images: [
             "/images/exterior/DSC08272 copy.jpg",
             "/images/exterior/DSC08237 copy.jpg",
         ],
-        cardRotation: "-1deg",
+        cardRotation: "-2deg",
         borderSide: "right",
     },
     {
@@ -96,43 +108,43 @@ export const ROOMS: Room[] = [
         name: "The Retreat",
         slug: "the-retreat",
         description:
-            "A corner room with a private terrace overlooking the garden. Perfect for those who seek both solitude and connection with nature.",
+            "Our corner room opens onto a private terrace where you can watch the garden come alive at dawn. For those who seek both solitude and connection with nature—this is your space to simply be.",
         amenities: ["AC", "WiFi", "Hot Water", "Terrace"],
         images: [
             "/images/exterior/DSC08237 copy.jpg",
             "/images/exterior/DSC08213 copy.jpg",
         ],
-        cardRotation: "2deg",
+        cardRotation: "3deg",
         borderSide: "bottom",
     },
 ];
 
-// FAQ data
+// FAQ data - clearer, more helpful
 export const FAQ_ITEMS = [
     {
-        question: "What is rammed earth construction?",
+        question: "What makes Anpu different from other stays?",
         answer:
-            "Rammed earth is an ancient building technique where natural materials like earth, chalk, and lime are compressed to create thick, solid walls. These walls naturally regulate temperature, keeping rooms cool in summer and warm in winter, while blending seamlessly with the landscape.",
+            "Anpu is built entirely of rammed earth—an ancient technique where compressed earth forms walls up to 60cm thick. These walls naturally regulate temperature (no AC needed for most of the year), create a deeply calming atmosphere, and age beautifully. The property was designed by the same architect behind Adishakti Theatre.",
     },
     {
-        question: "How far is Anpu from Pondicherry?",
+        question: "How do I get to Anpu from Pondicherry?",
         answer:
-            "Anpu is located approximately 12 km from Pondicherry city center, just 0.5 km from Kalarigram and 3 km from the Auroville Visitor Centre. The drive from Pondicherry takes about 25-30 minutes.",
+            "We're 12 km north of Pondicherry, a 25-30 minute drive. Head towards Auroville on the East Coast Road, then follow signs to Kalarigram—we're just 500 meters from there. We'll send detailed directions with your booking confirmation.",
     },
     {
-        question: "Is breakfast included?",
+        question: "Are meals available?",
         answer:
-            "Breakfast arrangements can be made upon request. We can connect you with local home-cooked meal services or guide you to nearby authentic eateries in the Auroville area.",
+            "We don't have an on-site restaurant, but we can connect you with excellent local options: home-cooked Tamil meals delivered to your room, or guide you to nearby Auroville cafes and Pondicherry restaurants. Many guests enjoy exploring the area's food scene.",
     },
     {
         question: "Can I book directly or only through Airbnb?",
         answer:
-            "You can book directly by contacting us via WhatsApp. We offer the same rates and a more personalized experience when you book directly.",
+            "Both! You can book through Airbnb for the security of their platform, or contact us directly via WhatsApp for the same rates with a more personal experience. We'll answer questions and help you choose the right room.",
     },
     {
-        question: "Are pets allowed?",
+        question: "Is Anpu suitable for remote work?",
         answer:
-            "We welcome well-behaved pets on a case-by-case basis. Please mention your furry companion when making an inquiry so we can prepare accordingly.",
+            "Yes—we have reliable WiFi, and the quiet environment is ideal for focused work. The Suite has a dedicated workspace area. Many guests split their days between work and exploring Auroville or Pondicherry.",
     },
 ];
 
@@ -149,8 +161,8 @@ export const AMENITY_ICONS: Record<string, string> = {
 // WhatsApp helper
 export function getWhatsAppUrl(roomName?: string): string {
     const baseMessage = roomName
-        ? `Hi! I'm interested in booking "${roomName}" at Anpu.`
-        : `Hi! I'm interested in staying at Anpu.`;
+        ? `Hi! I'd like to inquire about "${roomName}" at Anpu.`
+        : `Hi! I'd like to learn more about staying at Anpu.`;
 
     const message = encodeURIComponent(
         `${baseMessage}\n\nCould you please share availability and rates?`

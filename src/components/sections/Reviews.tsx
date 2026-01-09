@@ -26,8 +26,8 @@ export function Reviews() {
         <section className="py-24 px-6 bg-background">
             <div className="max-w-5xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-16 text-center">
-                    <h2 className="font-display text-4xl md:text-5xl text-foreground">
+                <div className="mb-16 text-center scroll-fade-up">
+                    <h2 className="font-display text-4xl md:text-5xl text-foreground kinetic-heading">
                         What Guests Say
                     </h2>
                 </div>
@@ -37,7 +37,7 @@ export function Reviews() {
                     {REVIEWS.map((review, index) => (
                         <div
                             key={index}
-                            className="bg-secondary rounded-lg p-6"
+                            className={`bg-secondary rounded-lg p-6 scroll-scale hover-lift stagger-${index + 1}`}
                         >
                             {/* Stars */}
                             <div className="flex gap-1 mb-4">

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { Snowflake, Wifi, Droplets, UtensilsCrossed, TreePalm, Sun } from "lucide-react";
+import { Snowflake, Wifi, Droplets, UtensilsCrossed, TreePalm, Sun, ChevronLeft, ChevronRight, X } from "lucide-react";
 import {
     Dialog,
     DialogContent,
@@ -10,7 +10,6 @@ import {
     DialogDescription,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
 import { type Room, getWhatsAppUrl } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
@@ -36,103 +35,102 @@ export function RoomModal({ room, isOpen, onClose }: RoomModalProps) {
 
     const activeImage = room.images[activeImageIndex];
 
+    const nextImage = () => {
+        setActiveImageIndex((prev) =>
+            prev === room.images.length - 1 ? 0 : prev + 1
+        );
+    };
+
+    const prevImage = () => {
+        setActiveImageIndex((prev) =>
+            prev === 0 ? room.images.length - 1 : prev - 1
+        );
+    };
+
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="max-w-5xl w-[95vw] h-[90vh] max-h-[800px] p-0 gap-0 bg-card overflow-hidden">
-                {/* Screen reader title */}
+            <DialogContent className="max-w-4xl w-[90vw] p-0 gap-0 bg-card overflow-hidden rounded-xl">
+                {/* Accessibility */}
                 <DialogTitle className="sr-only">{room.name}</DialogTitle>
                 <DialogDescription className="sr-only">
                     View details and photos of {room.name}
                 </DialogDescription>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[1fr_320px] h-full">
-                    {/* Left: Image Gallery */}
-                    <div className="relative bg-charcoal flex flex-col">
-                        {/* Main Image */}
-                        <div className="relative flex-1 min-h-[300px]">
-                            <Image
-                                src={activeImage}
-                                alt={`${room.name} - Photo ${activeImageIndex + 1}`}
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 1024px) 100vw, 60vw"
-                                quality={80}
-                                priority
-                            />
+                {/* Close button */}
+                <button
+                    onClick={onClose}
+                    className="absolute top-4 right-4 z-20 w-10 h-10 rounded-full bg-card/90 backdrop-blur-sm flex items-center justify-center text-foreground hover:bg-card transition-colors shadow-lg"
+                    aria-label="Close"
+                >
+                    <X className="w-5 h-5" />
+                </button>
 
-                            {/* Image counter */}
-                            <div className="absolute bottom-4 left-4 bg-charcoal/70 backdrop-blur-sm px-3 py-1 rounded-full">
-                                <span className="text-cream text-sm font-mono">
-                                    {activeImageIndex + 1} / {room.images.length}
-                                </span>
-                            </div>
+                {/* Image at top, content below - cleaner vertical layout */}
+                <div className="flex flex-col">
+                    {/* Image Section */}
+                    <div className="relative aspect-[16/9] bg-charcoal">
+                        <Image
+                            src={activeImage}
+                            alt={`${room.name} - Photo ${activeImageIndex + 1}`}
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 90vw, 900px"
+                            quality={85}
+                            priority
+                        />
 
-                            {/* Navigation Arrows */}
-                            {room.images.length > 1 && (
-                                <>
-                                    <button
-                                        onClick={() =>
-                                            setActiveImageIndex((prev) =>
-                                                prev === 0 ? room.images.length - 1 : prev - 1
-                                            )
-                                        }
-                                        className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-charcoal/70 backdrop-blur-sm flex items-center justify-center text-cream hover:bg-charcoal transition-colors"
-                                        aria-label="Previous image"
-                                    >
-                                        ←
-                                    </button>
-                                    <button
-                                        onClick={() =>
-                                            setActiveImageIndex((prev) =>
-                                                prev === room.images.length - 1 ? 0 : prev + 1
-                                            )
-                                        }
-                                        className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-charcoal/70 backdrop-blur-sm flex items-center justify-center text-cream hover:bg-charcoal transition-colors"
-                                        aria-label="Next image"
-                                    >
-                                        →
-                                    </button>
-                                </>
-                            )}
-                        </div>
-
-                        {/* Thumbnails */}
+                        {/* Navigation Arrows */}
                         {room.images.length > 1 && (
-                            <div className="flex gap-2 p-4 bg-charcoal/90">
-                                {room.images.map((img, idx) => (
+                            <>
+                                <button
+                                    onClick={prevImage}
+                                    className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cream/90 flex items-center justify-center text-charcoal hover:bg-cream transition-colors shadow-lg"
+                                    aria-label="Previous image"
+                                >
+                                    <ChevronLeft className="w-5 h-5" />
+                                </button>
+                                <button
+                                    onClick={nextImage}
+                                    className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cream/90 flex items-center justify-center text-charcoal hover:bg-cream transition-colors shadow-lg"
+                                    aria-label="Next image"
+                                >
+                                    <ChevronRight className="w-5 h-5" />
+                                </button>
+                            </>
+                        )}
+
+                        {/* Image dots */}
+                        {room.images.length > 1 && (
+                            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+                                {room.images.map((_, idx) => (
                                     <button
                                         key={idx}
                                         onClick={() => setActiveImageIndex(idx)}
                                         className={cn(
-                                            "relative w-16 h-12 rounded overflow-hidden border-2 transition-all",
+                                            "w-2 h-2 rounded-full transition-all",
                                             idx === activeImageIndex
-                                                ? "border-teal"
-                                                : "border-transparent opacity-60 hover:opacity-100"
+                                                ? "bg-cream w-6"
+                                                : "bg-cream/50 hover:bg-cream/80"
                                         )}
-                                    >
-                                        <Image
-                                            src={img}
-                                            alt={`Thumbnail ${idx + 1}`}
-                                            fill
-                                            className="object-cover"
-                                            sizes="64px"
-                                        />
-                                    </button>
+                                        aria-label={`Go to image ${idx + 1}`}
+                                    />
                                 ))}
                             </div>
                         )}
                     </div>
 
-                    {/* Right: Details Panel */}
-                    <div className="flex flex-col p-6 lg:p-8 overflow-y-auto">
-                        {/* Room Name & Badge */}
-                        <div className="mb-6">
-                            <Badge variant="outline" className="mb-2">
-                                Rammed Earth
-                            </Badge>
-                            <h2 className="font-display text-3xl lg:text-4xl text-foreground">
-                                {room.name}
-                            </h2>
+                    {/* Content Section */}
+                    <div className="p-8 lg:p-10">
+                        {/* Header row */}
+                        <div className="flex items-start justify-between gap-4 mb-6">
+                            <div>
+                                <span className="text-xs text-primary font-mono uppercase tracking-wider">
+                                    Rammed Earth
+                                </span>
+                                <h2 className="font-display text-3xl lg:text-4xl text-foreground mt-1">
+                                    {room.name}
+                                </h2>
+                            </div>
                         </div>
 
                         {/* Description */}
@@ -140,43 +138,36 @@ export function RoomModal({ room, isOpen, onClose }: RoomModalProps) {
                             {room.description}
                         </p>
 
-                        {/* Amenities */}
-                        <div className="mb-8">
-                            <h3 className="text-sm font-medium text-foreground mb-4">
-                                Amenities
-                            </h3>
-                            <div className="grid grid-cols-3 gap-3">
-                                {room.amenities.map((amenity) => {
-                                    const Icon = AMENITY_ICONS[amenity] || Snowflake;
-                                    return (
-                                        <div
-                                            key={amenity}
-                                            className="flex flex-col items-center gap-2 p-3 rounded-lg bg-secondary"
-                                        >
-                                            <Icon className="w-5 h-5 text-primary" />
-                                            <span className="text-xs text-foreground text-center">
-                                                {amenity}
-                                            </span>
-                                        </div>
-                                    );
-                                })}
-                            </div>
+                        {/* Amenities row */}
+                        <div className="flex flex-wrap gap-2 mb-8">
+                            {room.amenities.map((amenity) => {
+                                const Icon = AMENITY_ICONS[amenity] || Snowflake;
+                                return (
+                                    <div
+                                        key={amenity}
+                                        className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-secondary text-sm"
+                                    >
+                                        <Icon className="w-4 h-4 text-primary" />
+                                        <span className="text-foreground">{amenity}</span>
+                                    </div>
+                                );
+                            })}
                         </div>
 
-                        {/* CTA Button */}
-                        <div className="mt-auto">
-                            <Button asChild size="lg" className="w-full">
+                        {/* CTA row */}
+                        <div className="flex flex-col sm:flex-row items-center gap-4">
+                            <Button asChild size="lg" className="w-full sm:w-auto px-8">
                                 <a
                                     href={getWhatsAppUrl(room.name)}
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
-                                    Inquire via WhatsApp
+                                    Inquire on WhatsApp
                                 </a>
                             </Button>
-                            <p className="text-xs text-muted-foreground text-center mt-3">
-                                Pricing shared upon inquiry
-                            </p>
+                            <span className="text-sm text-muted-foreground">
+                                Rates shared upon inquiry
+                            </span>
                         </div>
                     </div>
                 </div>

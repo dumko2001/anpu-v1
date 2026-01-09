@@ -3,12 +3,12 @@ import { Badge } from "@/components/ui/badge";
 
 export function Story() {
     return (
-        <section id="story" className="py-24 px-6 bg-secondary">
+        <section id="story" className="py-24 px-6 bg-secondary overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-16">
+                <div className="mb-16 scroll-fade-up">
                     <span className="font-mono text-sm text-muted-foreground">02</span>
-                    <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground">
+                    <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                         The Vision
                     </h2>
                 </div>
@@ -16,7 +16,7 @@ export function Story() {
                 {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
                     {/* Left: Quote and Text */}
-                    <div>
+                    <div className="scroll-fade-left">
                         <blockquote className="font-display text-2xl md:text-3xl text-foreground italic leading-relaxed mb-8">
                             {'"Architecture should emerge from the earth it stands on"'}
                         </blockquote>
@@ -40,15 +40,15 @@ export function Story() {
                         </p>
                     </div>
 
-                    {/* Right: Images */}
-                    <div className="relative">
+                    {/* Right: Images with parallax */}
+                    <div className="relative scroll-fade-right">
                         {/* Main Image */}
-                        <div className="relative aspect-[4/5] rounded-lg overflow-hidden">
+                        <div className="relative aspect-[4/5] rounded-lg overflow-hidden hover-scale">
                             <Image
                                 src="/images/exterior/DSC08237 copy.jpg"
                                 alt="Interior of Anpu showing rammed earth walls"
                                 fill
-                                className="object-cover"
+                                className="object-cover parallax-image"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={75}
                             />
@@ -61,7 +61,7 @@ export function Story() {
                         </div>
 
                         {/* Overlapping Second Image */}
-                        <div className="absolute -bottom-8 -left-8 w-2/5 aspect-square rounded-lg overflow-hidden shadow-xl hidden lg:block">
+                        <div className="absolute -bottom-8 -left-8 w-2/5 aspect-square rounded-lg overflow-hidden shadow-xl hidden lg:block hover-lift">
                             <Image
                                 src="/images/exterior/DSC08213 copy.jpg"
                                 alt="Detail of rammed earth texture"
@@ -75,7 +75,7 @@ export function Story() {
                 </div>
 
                 {/* Bottom tagline */}
-                <div className="mt-24 pt-8 border-t border-border">
+                <div className="mt-24 pt-8 border-t border-border scroll-fade-up">
                     <p className="text-center text-muted-foreground tracking-widest uppercase text-sm">
                         Sustainable · Conscious · Timeless
                     </p>
