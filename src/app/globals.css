@@ -1,26 +1,204 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@custom-variant dark (&:is(.dark *));
+
+/* ===========================================
+   ANPU DESIGN TOKENS
+   All visual values defined here.
+   Future devs: ONLY edit this section for styling.
+=========================================== */
 
 @theme inline {
+  /* Font families */
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-cormorant);
+  --font-mono: var(--font-geist-mono);
+
+  /* Map shadcn variables to Tailwind */
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* === ANPU CUSTOM COLORS FOR TAILWIND === */
+  /* These enable: text-ochre, bg-teal, border-cream, etc. */
+  --color-ochre: oklch(0.72 0.14 70);
+  --color-terracotta: oklch(0.55 0.12 35);
+  --color-teal: oklch(0.65 0.12 185);
+  --color-cream: oklch(0.97 0.01 90);
+  --color-charcoal: oklch(0.25 0.02 50);
+
+  /* Radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  /* === ANPU BRAND COLORS (CSS Variables) === */
+  --ochre: oklch(0.72 0.14 70);
+  --terracotta: oklch(0.55 0.12 35);
+  --teal: oklch(0.65 0.12 185);
+  --teal-hover: oklch(0.55 0.12 185);
+  --cream: oklch(0.97 0.01 90);
+  --cream-dark: oklch(0.93 0.01 85);
+  --charcoal: oklch(0.25 0.02 50);
+  --charcoal-light: oklch(0.45 0.02 50);
+
+  /* === SHADCN SEMANTIC COLORS === */
+  --radius: 0.5rem;
+  --background: oklch(0.97 0.01 90);
+  --foreground: oklch(0.25 0.02 50);
+  --card: oklch(0.97 0.01 90);
+  --card-foreground: oklch(0.25 0.02 50);
+  --popover: oklch(0.97 0.01 90);
+  --popover-foreground: oklch(0.25 0.02 50);
+  --primary: oklch(0.65 0.12 185);
+  --primary-foreground: oklch(0.97 0.01 90);
+  --secondary: oklch(0.93 0.01 85);
+  --secondary-foreground: oklch(0.25 0.02 50);
+  --muted: oklch(0.93 0.01 85);
+  --muted-foreground: oklch(0.45 0.02 50);
+  --accent: oklch(0.72 0.14 70);
+  --accent-foreground: oklch(0.25 0.02 50);
+  --destructive: oklch(0.55 0.2 25);
+  --border: oklch(0.88 0.02 80);
+  --input: oklch(0.92 0.01 85);
+  --ring: oklch(0.65 0.12 185);
+}
+
+/* === DARK MODE (warm charcoal, not cold black) === */
+.dark {
+  --background: oklch(0.15 0.02 45);
+  --foreground: oklch(0.92 0.01 85);
+  --card: oklch(0.20 0.02 45);
+  --card-foreground: oklch(0.92 0.01 85);
+  --popover: oklch(0.20 0.02 45);
+  --popover-foreground: oklch(0.92 0.01 85);
+  --primary: oklch(0.65 0.12 185);
+  --primary-foreground: oklch(0.15 0.02 45);
+  --secondary: oklch(0.25 0.02 45);
+  --secondary-foreground: oklch(0.92 0.01 85);
+  --muted: oklch(0.25 0.02 45);
+  --muted-foreground: oklch(0.65 0.02 70);
+  --accent: oklch(0.72 0.14 70);
+  --accent-foreground: oklch(0.15 0.02 45);
+  --border: oklch(1 0 0 / 10%);
+  --input: oklch(1 0 0 / 15%);
+  --ring: oklch(0.65 0.12 185);
+}
+
+/* === BASE STYLES === */
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: var(--font-inter), system-ui, sans-serif;
+  }
+
+  /* Respect reduced motion preference */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* === UTILITY CLASSES === */
+@layer utilities {
+
+  /* Glass effect for header */
+  .glass {
+    background: oklch(0.97 0.01 90 / 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .dark .glass {
+    background: oklch(0.15 0.02 45 / 0.85);
+  }
+
+  /* Hero text styling - solid color with good contrast */
+  .hero-text {
+    color: oklch(0.97 0.01 90);
+    text-shadow: 0 2px 20px oklch(0 0 0 / 0.3);
+  }
+
+  /* Leaflet map z-index fixes - keep below header */
+  .leaflet-pane,
+  .leaflet-control-container,
+  .leaflet-top,
+  .leaflet-bottom {
+    z-index: 10 !important;
+  }
+
+  .leaflet-control {
+    z-index: 10 !important;
+  }
+
+  /* Simple fade-in animation for sections */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Stagger delays for children */
+  .stagger-1 {
+    animation-delay: 0.1s;
+  }
+
+  .stagger-2 {
+    animation-delay: 0.2s;
+  }
+
+  .stagger-3 {
+    animation-delay: 0.3s;
+  }
+
+  .stagger-4 {
+    animation-delay: 0.4s;
+  }
 }
