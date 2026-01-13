@@ -24,8 +24,8 @@ export function Rooms() {
                         </p>
                     </div>
 
-                    {/* Bento Grid - added padding to allow overflow for tilted cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-8 p-4 -m-4">
+                    {/* Uniform 2x2 Grid - all cards equal size */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-2 -m-2">
                         {ROOMS.map((room, index) => (
                             <RoomCard
                                 key={room.id}
@@ -56,25 +56,17 @@ function RoomCard({
     index: number;
     onClick: () => void;
 }) {
-    const isLarge = index === 0;
-
     return (
-        // Outer wrapper for grid positioning - allows rotate to work without clipping
-        <div
-            className={cn(
-                isLarge
-                    ? "lg:col-span-7 lg:row-span-2"
-                    : "lg:col-span-5"
-            )}
-        >
-            {/* Inner card with tilt rotation */}
+        // All cards same size now
+        <div className="group">
             <button
                 onClick={onClick}
                 className={cn(
-                    "group relative w-full overflow-hidden rounded-xl cursor-pointer text-left",
+                    "relative w-full aspect-[4/3] overflow-hidden rounded-xl cursor-pointer text-left",
                     "transition-all duration-500 ease-out",
                     "hover:shadow-2xl hover:scale-[1.02]",
-                    isLarge ? "aspect-[4/3] lg:h-full" : "aspect-[4/3]",
+                    // Subtle tilt
+                    room.cardRotation && `rotate-[${room.cardRotation}]`,
                     // Turquoise border on specific side
                     room.borderSide === "left" && "border-l-4 border-l-teal",
                     room.borderSide === "top" && "border-t-4 border-t-teal",
@@ -92,7 +84,7 @@ function RoomCard({
                     alt={room.name}
                     fill
                     className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    sizes={isLarge ? "(max-width: 768px) 100vw, 60vw" : "(max-width: 768px) 100vw, 40vw"}
+                    sizes="(max-width: 768px) 100vw, 50vw"
                     quality={75}
                 />
 

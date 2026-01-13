@@ -1,7 +1,13 @@
+"use client";
+
+import { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
 export function Story() {
+    const [isHovered, setIsHovered] = useState(false);
+
     return (
         <section id="story" className="py-16 px-6 bg-secondary overflow-hidden">
             <div className="max-w-7xl mx-auto">
@@ -39,10 +45,28 @@ export function Story() {
                         </p>
                     </div>
 
-                    {/* Right: Images */}
-                    <div className="scroll-fade-right">
-                        {/* Main Image */}
-                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden hover-scale">
+                    {/* Right: Stacked animated images */}
+                    <div
+                        className="scroll-fade-right relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
+                        onMouseEnter={() => setIsHovered(true)}
+                        onMouseLeave={() => setIsHovered(false)}
+                    >
+                        {/* Back image (shows on hover) */}
+                        <Image
+                            src="/images/exterior/DSC08213 copy.jpg"
+                            alt="Detail of rammed earth texture"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            quality={75}
+                        />
+
+                        {/* Front image (fades out on hover) */}
+                        <motion.div
+                            className="absolute inset-0"
+                            animate={{ opacity: isHovered ? 0 : 1 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
                             <Image
                                 src="/images/exterior/DSC08237 copy.jpg"
                                 alt="Interior of Anpu showing rammed earth walls"
@@ -51,24 +75,19 @@ export function Story() {
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={75}
                             />
-                            <Badge
-                                variant="outline"
-                                className="absolute bottom-4 right-4 bg-cream/90 text-charcoal border-0"
-                            >
-                                Rammed Earth
-                            </Badge>
-                        </div>
+                        </motion.div>
 
-                        {/* Second Image - now relative, not overlapping to avoid space issues */}
-                        <div className="mt-4 relative w-2/3 aspect-[4/3] rounded-lg overflow-hidden shadow-xl hidden lg:block hover-lift">
-                            <Image
-                                src="/images/exterior/DSC08213 copy.jpg"
-                                alt="Detail of rammed earth texture"
-                                fill
-                                className="object-cover"
-                                sizes="300px"
-                                quality={70}
-                            />
+                        {/* Badge */}
+                        <Badge
+                            variant="outline"
+                            className="absolute bottom-4 right-4 bg-cream/90 text-charcoal border-0 z-10"
+                        >
+                            {isHovered ? "Earth Texture" : "Rammed Earth"}
+                        </Badge>
+
+                        {/* Hover hint */}
+                        <div className="absolute bottom-4 left-4 text-xs text-cream/70 bg-charcoal/50 backdrop-blur-sm px-2 py-1 rounded z-10">
+                            Hover to explore
                         </div>
                     </div>
                 </div>
@@ -83,4 +102,3 @@ export function Story() {
         </section>
     );
 }
-
