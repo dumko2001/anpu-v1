@@ -15,8 +15,8 @@ export interface GalleryImage {
     category: "exterior" | "rooms" | "details" | "surroundings";
     /** Optional caption shown in lightbox */
     caption?: string;
-    /** Grid span for bento layout: 1 = normal, 2 = wide */
-    span?: 1 | 2;
+    /** Aspect ratio: 'normal' (4/3), 'tall' (3/4), 'wide' (spans 2 cols) */
+    aspect?: "normal" | "tall" | "wide";
 }
 
 /**
@@ -44,7 +44,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
         alt: "Anpu retreat at twilight",
         category: "exterior",
         caption: "The retreat bathed in twilight hues",
-        span: 2,
+        aspect: "wide",
     },
     {
         id: "ext-2",
@@ -52,13 +52,14 @@ export const GALLERY_IMAGES: GalleryImage[] = [
         alt: "Evening view of the property",
         category: "exterior",
         caption: "Evening falls on rammed earth walls",
+        aspect: "tall",
     },
     {
         id: "ext-3",
         src: "/images/exterior/DSC08272 copy.jpg",
         alt: "Architectural details",
         category: "exterior",
-        caption: "Traditional Tamil Nadu craftsmanship",
+        caption: "Handcrafted details",
     },
     // Room shots
     {
@@ -67,7 +68,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
         alt: "The Suite interior",
         category: "rooms",
         caption: "The Suite — Spacious and serene",
-        span: 2,
+        aspect: "tall",
     },
     {
         id: "room-2",
@@ -83,6 +84,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
         alt: "Rammed earth texture",
         category: "details",
         caption: "Textured rammed earth walls",
+        aspect: "wide",
     },
 ];
 

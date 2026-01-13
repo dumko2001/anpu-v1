@@ -24,8 +24,8 @@ export function Rooms() {
                         </p>
                     </div>
 
-                    {/* Uniform 2x2 Grid - all cards equal size */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-2 -m-2">
+                    {/* Alternating Grid - creates visual rhythm */}
+                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
                         {ROOMS.map((room, index) => (
                             <RoomCard
                                 key={room.id}
@@ -56,17 +56,17 @@ function RoomCard({
     index: number;
     onClick: () => void;
 }) {
+    // Alternating sizes: 0=7col, 1=5col, 2=5col, 3=7col
+    const colSpan = (index === 0 || index === 3) ? "md:col-span-7" : "md:col-span-5";
+
     return (
-        // All cards same size now
-        <div className="group">
+        <div className={cn("group", colSpan)}>
             <button
                 onClick={onClick}
                 className={cn(
                     "relative w-full aspect-[4/3] overflow-hidden rounded-xl cursor-pointer text-left",
                     "transition-all duration-500 ease-out",
                     "hover:shadow-2xl hover:scale-[1.02]",
-                    // Subtle tilt
-                    room.cardRotation && `rotate-[${room.cardRotation}]`,
                     // Turquoise border on specific side
                     room.borderSide === "left" && "border-l-4 border-l-teal",
                     room.borderSide === "top" && "border-t-4 border-t-teal",

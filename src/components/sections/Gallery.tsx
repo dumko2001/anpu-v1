@@ -134,9 +134,9 @@ export function Gallery() {
                         ))}
                     </div>
 
-                    {/* Bento Grid */}
+                    {/* Masonry-style Grid with varying heights */}
                     <motion.div
-                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6"
+                        className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
@@ -172,9 +172,8 @@ export function Gallery() {
         </>
     );
 }
-
 /**
- * Individual gallery item with hover effects
+ * Individual gallery item with varying aspect ratios
  */
 function GalleryItem({
     image,
@@ -185,14 +184,20 @@ function GalleryItem({
     index: number;
     onClick: () => void;
 }) {
+    // Determine aspect ratio and grid span based on image.aspect
+    const aspectClass = image.aspect === "tall"
+        ? "aspect-[3/4] row-span-2"
+        : image.aspect === "wide"
+            ? "aspect-[16/9] md:col-span-2"
+            : "aspect-[4/3]";
+
     return (
         <motion.button
             variants={itemVariants}
             className={cn(
-                "group relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer",
+                "group relative rounded-lg overflow-hidden cursor-pointer",
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",
-                // Wide images span 2 columns on larger screens
-                image.span === 2 && "md:col-span-2"
+                aspectClass
             )}
             onClick={onClick}
             aria-label={`View ${image.alt}`}
@@ -202,7 +207,7 @@ function GalleryItem({
                 alt={image.alt}
                 fill
                 className="object-cover transition-transform duration-500 group-hover:scale-110"
-                sizes={image.span === 2
+                sizes={image.aspect === "wide"
                     ? "(max-width: 768px) 100vw, 50vw"
                     : "(max-width: 768px) 50vw, 25vw"
                 }
@@ -215,11 +220,6 @@ function GalleryItem({
                     View
                 </span>
             </div>
-
-            {/* Category badge (optional, for visual) */}
-            <span className="absolute top-3 left-3 px-2 py-1 text-xs bg-cream/90 text-charcoal rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                {image.category}
-            </span>
         </motion.button>
     );
 }

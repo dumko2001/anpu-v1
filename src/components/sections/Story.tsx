@@ -1,12 +1,32 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
+const VISION_IMAGES = [
+    { src: "/images/exterior/DSC08237 copy.jpg", alt: "Interior of Anpu", label: "Interior" },
+    { src: "/images/exterior/DSC08213 copy.jpg", alt: "Rammed earth texture", label: "Texture" },
+];
+
+const CYCLE_DURATION = 4000; // 4 seconds per image
+
 export function Story() {
-    const [isHovered, setIsHovered] = useState(false);
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    // Auto-cycle images
+    useEffect(() => {
+        const timer = setInterval(() => {
+            setCurrentIndex((prev) => (prev + 1) % VISION_IMAGES.length);
+        }, CYCLE_DURATION);
+        return () => clearInterval(timer);
+    }, []);
+
+    // Handle tap/click to manually advance
+    const handleTap = () => {
+        setCurrentIndex((prev) => (prev + 1) % VISION_IMAGES.length);
+    };
 
     return (
         <section id="story" className="py-16 px-6 bg-secondary overflow-hidden">
@@ -19,7 +39,7 @@ export function Story() {
                     </h2>
                 </div>
 
-                {/* Content Grid - items-start to prevent vertical centering gap */}
+                {/* Content Grid */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                     {/* Left: Quote and Text */}
                     <div className="scroll-fade-left">
@@ -45,49 +65,50 @@ export function Story() {
                         </p>
                     </div>
 
-                    {/* Right: Stacked animated images */}
+                    {/* Right: Auto-cycling slideshow */}
                     <div
                         className="scroll-fade-right relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
-                        onMouseEnter={() => setIsHovered(true)}
-                        onMouseLeave={() => setIsHovered(false)}
+                        onClick={handleTap}
                     >
-                        {/* Back image (shows on hover) */}
-                        <Image
-                            src="/images/exterior/DSC08213 copy.jpg"
-                            alt="Detail of rammed earth texture"
-                            fill
-                            className="object-cover"
-                            sizes="(max-width: 1024px) 100vw, 50vw"
-                            quality={75}
-                        />
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={currentIndex}
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                transition={{ duration: 0.8, ease: "easeInOut" }}
+                                className="absolute inset-0"
+                            >
+                                <Image
+                                    src={VISION_IMAGES[currentIndex].src}
+                                    alt={VISION_IMAGES[currentIndex].alt}
+                                    fill
+                                    className="object-cover"
+                                    sizes="(max-width: 1024px) 100vw, 50vw"
+                                    quality={75}
+                                />
+                            </motion.div>
+                        </AnimatePresence>
 
-                        {/* Front image (fades out on hover) */}
-                        <motion.div
-                            className="absolute inset-0"
-                            animate={{ opacity: isHovered ? 0 : 1 }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                        >
-                            <Image
-                                src="/images/exterior/DSC08237 copy.jpg"
-                                alt="Interior of Anpu showing rammed earth walls"
-                                fill
-                                className="object-cover"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                                quality={75}
-                            />
-                        </motion.div>
-
-                        {/* Badge */}
+                        {/* Badge with current label */}
                         <Badge
                             variant="outline"
                             className="absolute bottom-4 right-4 bg-cream/90 text-charcoal border-0 z-10"
                         >
-                            {isHovered ? "Earth Texture" : "Rammed Earth"}
+                            {VISION_IMAGES[currentIndex].label}
                         </Badge>
 
-                        {/* Hover hint */}
-                        <div className="absolute bottom-4 left-4 text-xs text-cream/70 bg-charcoal/50 backdrop-blur-sm px-2 py-1 rounded z-10">
-                            Hover to explore
+                        {/* Progress dots */}
+                        <div className="absolute bottom-4 left-4 flex gap-2 z-10">
+                            {VISION_IMAGES.map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={(e) => { e.stopPropagation(); setCurrentIndex(idx); }}
+                                    className={`w-2 h-2 rounded-full transition-all ${idx === currentIndex ? "bg-cream w-6" : "bg-cream/50"
+                                        }`}
+                                    aria-label={`View image ${idx + 1}`}
+                                />
+                            ))}
                         </div>
                     </div>
                 </div>
@@ -102,3 +123,4 @@ export function Story() {
         </section>
     );
 }
+
