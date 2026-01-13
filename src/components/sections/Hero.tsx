@@ -16,6 +16,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { SITE_CONFIG } from "@/lib/constants";
+import { FloatingParticles, ShootingStars, AmbientGlow } from "@/components/effects/HeroAmbient";
 
 /** Delay between each letter animation in seconds */
 const STAGGER_DELAY = 0.08;
@@ -104,6 +105,11 @@ export function Hero() {
                         "linear-gradient(to top, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.1) 100%)",
                 }}
             />
+
+            {/* Ambient Effects */}
+            <FloatingParticles />
+            <ShootingStars />
+            <AmbientGlow />
 
             {/* Content */}
             <div className="absolute inset-0 flex flex-col items-center justify-center">
