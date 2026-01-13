@@ -106,13 +106,15 @@ export function Hero() {
                 }}
             />
 
-            {/* Ambient Effects */}
-            <FloatingParticles />
-            <ShootingStars />
-            <AmbientGlow />
+            {/* Ambient Effects - z-10 to appear on top of gradient, below text */}
+            <div className="absolute inset-0 z-10 pointer-events-none">
+                <FloatingParticles />
+                <ShootingStars />
+                <AmbientGlow />
+            </div>
 
-            {/* Content */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center">
+            {/* Content - z-20 to appear above effects */}
+            <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
                 {/* Staggered ANPU text */}
                 <motion.h1
                     className="hero-text font-display text-[15vw] md:text-[12vw] lg:text-[10vw] font-light tracking-tight leading-none select-none flex"

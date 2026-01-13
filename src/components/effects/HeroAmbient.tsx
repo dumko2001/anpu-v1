@@ -23,14 +23,14 @@ export function FloatingParticles() {
         // Generate particles on mount
         const generateParticles = () => {
             const newParticles: Particle[] = [];
-            for (let i = 0; i < 15; i++) {
+            for (let i = 0; i < 25; i++) {
                 newParticles.push({
                     id: i,
                     x: Math.random() * 100,
-                    y: Math.random() * 100,
-                    size: Math.random() * 3 + 1,
-                    duration: Math.random() * 20 + 15,
-                    delay: Math.random() * 10,
+                    y: 50 + Math.random() * 50, // Start from bottom half
+                    size: Math.random() * 6 + 3, // Larger particles (3-9px)
+                    duration: Math.random() * 12 + 8, // Faster (8-20s)
+                    delay: Math.random() * 5, // Less delay
                 });
             }
             setParticles(newParticles);
@@ -44,18 +44,20 @@ export function FloatingParticles() {
             {particles.map((particle) => (
                 <motion.div
                     key={particle.id}
-                    className="absolute rounded-full bg-cream/20"
+                    className="absolute rounded-full"
                     style={{
                         left: `${particle.x}%`,
                         top: `${particle.y}%`,
                         width: particle.size,
                         height: particle.size,
+                        background: "rgba(255, 255, 255, 0.6)",
+                        boxShadow: "0 0 10px 4px rgba(255, 255, 255, 0.3)",
                     }}
                     animate={{
-                        y: [0, -100, -200],
-                        x: [0, Math.random() * 50 - 25],
-                        opacity: [0, 0.6, 0],
-                        scale: [0.5, 1, 0.5],
+                        y: [0, -200, -400],
+                        x: [0, Math.random() * 40 - 20],
+                        opacity: [0, 1, 0],
+                        scale: [0.3, 1, 0.2],
                     }}
                     transition={{
                         duration: particle.duration,

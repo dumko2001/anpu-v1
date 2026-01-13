@@ -5,14 +5,18 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { ROOMS, type Room } from "@/lib/constants";
 import { RoomModal } from "@/components/rooms/RoomModal";
+import { SectionParticles } from "@/components/effects/SectionEffects";
 
 export function Rooms() {
     const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
 
     return (
         <>
-            <section id="rooms" className="py-16 px-6 bg-background">
-                <div className="max-w-7xl mx-auto">
+            <section id="rooms" className="relative py-16 px-6 bg-background overflow-hidden">
+                {/* Ambient particles */}
+                <SectionParticles color="charcoal" count={15} opacity={0.3} />
+
+                <div className="relative z-10 max-w-7xl mx-auto">
                     {/* Section Header */}
                     <div className="mb-10 scroll-fade-up">
                         <span className="font-mono text-sm text-muted-foreground">01</span>
@@ -56,8 +60,8 @@ function RoomCard({
     index: number;
     onClick: () => void;
 }) {
-    // Alternating sizes: 0=7col, 1=5col, 2=5col, 3=7col
-    const colSpan = (index === 0 || index === 3) ? "md:col-span-7" : "md:col-span-5";
+    // Suite (index 0) is larger, others are equal smaller size
+    const colSpan = index === 0 ? "md:col-span-6" : "md:col-span-5";
 
     return (
         <div className={cn("group", colSpan)}>

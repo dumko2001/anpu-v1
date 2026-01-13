@@ -90,20 +90,6 @@ export const ROOMS: Room[] = [
         borderSide: "top",
     },
     {
-        id: "sanctuary",
-        name: "The Sanctuary",
-        slug: "the-sanctuary",
-        description:
-            "Find your center in this thoughtfully designed space. The warm ochre walls and dark wood furniture create a meditative atmosphere, while the turquoise accents remind you of the nearby coast. A room for reflection.",
-        amenities: ["AC", "WiFi", "Hot Water"],
-        images: [
-            "/images/exterior/DSC08272 copy.jpg",
-            "/images/exterior/DSC08237 copy.jpg",
-        ],
-        cardRotation: "1deg",
-        borderSide: "right",
-    },
-    {
         id: "retreat",
         name: "The Retreat",
         slug: "the-retreat",
@@ -115,6 +101,20 @@ export const ROOMS: Room[] = [
             "/images/exterior/DSC08213 copy.jpg",
         ],
         cardRotation: "-1.5deg",
+        borderSide: "right",
+    },
+    {
+        id: "sanctuary",
+        name: "The Sanctuary",
+        slug: "the-sanctuary",
+        description:
+            "Find your center in this thoughtfully designed space. The warm ochre walls and dark wood furniture create a meditative atmosphere, while the turquoise accents remind you of the nearby coast. A room for reflection.",
+        amenities: ["AC", "WiFi", "Hot Water"],
+        images: [
+            "/images/exterior/DSC08272 copy.jpg",
+            "/images/exterior/DSC08237 copy.jpg",
+        ],
+        cardRotation: "1deg",
         borderSide: "bottom",
     },
 ];

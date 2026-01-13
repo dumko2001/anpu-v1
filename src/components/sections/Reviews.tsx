@@ -1,6 +1,7 @@
 "use client";
 
 import { TestimonialsColumn, type Testimonial } from "@/components/common/TestimonialsColumn";
+import { Sparkles } from "@/components/effects/SectionEffects";
 
 const REVIEWS: Testimonial[] = [
     {
@@ -57,8 +58,11 @@ const thirdColumn = REVIEWS.slice(6, 9);
 
 export function Reviews() {
     return (
-        <section className="py-16 px-6 bg-background overflow-hidden">
-            <div className="max-w-5xl mx-auto">
+        <section className="relative py-16 px-6 bg-background overflow-hidden">
+            {/* Sparkle effects */}
+            <Sparkles count={10} />
+
+            <div className="relative z-10 max-w-5xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-10 text-center scroll-fade-up">
                     <h2 className="font-display text-4xl md:text-5xl text-foreground kinetic-heading">
