@@ -11,6 +11,11 @@ const nextConfig: NextConfig = {
   images: {
     unoptimized: true,
   },
+
+  // Experimental: scroll restoration behavior
+  experimental: {
+    scrollRestoration: true,
+  },
 };
 
 export default nextConfig;

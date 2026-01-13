@@ -9,7 +9,7 @@ export function Story() {
     const [showSecond, setShowSecond] = useState(false);
 
     return (
-        <section id="story" className="py-16 px-6 bg-secondary overflow-hidden">
+        <section id="story" className="pt-16 pb-8 px-6 bg-secondary overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-6 scroll-fade-up">
@@ -94,7 +94,7 @@ export function Story() {
                 </div>
 
                 {/* Bottom tagline */}
-                <div className="mt-10 pt-6 border-t border-border scroll-fade-up">
+                <div className="mt-8 pt-6 border-t border-border scroll-fade-up">
                     <p className="text-center text-muted-foreground tracking-widest uppercase text-sm">
                         Sustainable · Conscious · Timeless
                     </p>
