@@ -23,7 +23,7 @@ const REVIEWS = [
 
 export function Reviews() {
     return (
-        <section className="py-24 px-6 bg-background">
+        <section className="py-16 px-6 bg-background">
             <div className="max-w-5xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-16 text-center scroll-fade-up">

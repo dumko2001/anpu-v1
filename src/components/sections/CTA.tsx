@@ -4,7 +4,7 @@ import { SITE_CONFIG, getWhatsAppUrl } from "@/lib/constants";
 
 export function CTA() {
     return (
-        <section id="contact" className="relative py-24 px-6 overflow-hidden">
+        <section id="contact" className="relative py-16 px-6 overflow-hidden">
             {/* Background Image with parallax */}
             <div className="absolute inset-0">
                 <Image

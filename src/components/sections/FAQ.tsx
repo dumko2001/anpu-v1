@@ -8,7 +8,7 @@ import { FAQ_ITEMS } from "@/lib/constants";
 
 export function FAQ() {
     return (
-        <section id="faq" className="py-24 px-6 bg-secondary">
+        <section id="faq" className="py-16 px-6 bg-secondary">
             <div className="max-w-4xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-10 text-center scroll-fade-up">

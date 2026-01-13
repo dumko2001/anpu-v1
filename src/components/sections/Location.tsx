@@ -24,7 +24,7 @@ export function Location() {
     const { lat, lng } = SITE_CONFIG.location.coordinates;
 
     return (
-        <section id="location" className="py-24 px-6 bg-background">
+        <section id="location" className="py-16 px-6 bg-background">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-10">

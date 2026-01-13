@@ -85,7 +85,7 @@ export function Gallery() {
 
     return (
         <>
-            <section id="gallery" className="py-24 px-6 bg-secondary">
+            <section id="gallery" className="py-16 px-6 bg-secondary">
                 <div className="max-w-7xl mx-auto">
                     {/* Section Header */}
                     <div className="mb-8 scroll-fade-up">

@@ -3,32 +3,32 @@ import { Badge } from "@/components/ui/badge";
 
 export function Story() {
     return (
-        <section id="story" className="py-24 px-6 bg-secondary overflow-hidden">
+        <section id="story" className="py-16 px-6 bg-secondary overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-8 scroll-fade-up">
+                <div className="mb-6 scroll-fade-up">
                     <span className="font-mono text-sm text-muted-foreground">02</span>
                     <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                         The Vision
                     </h2>
                 </div>
 
-                {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+                {/* Content Grid - items-start to prevent vertical centering gap */}
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
                     {/* Left: Quote and Text */}
                     <div className="scroll-fade-left">
-                        <blockquote className="font-display text-2xl md:text-3xl text-foreground italic leading-relaxed mb-8">
-                            {'"Architecture should emerge from the earth it stands on"'}
+                        <blockquote className="font-display text-2xl md:text-3xl text-foreground italic leading-relaxed mb-6">
+                            {"\"Architecture should emerge from the earth it stands on\""}
                         </blockquote>
 
-                        <p className="text-muted-foreground text-lg leading-relaxed mb-6">
+                        <p className="text-muted-foreground leading-relaxed mb-4">
                             Born from the same hands that shaped Adishakti Theatre, Anpu
                             stands as a testament to what happens when architecture listens
                             to the land. Every wall is compressed earth—60cm thick, breathing
                             with the seasons, cool in summer, warm in winter.
                         </p>
 
-                        <p className="text-muted-foreground leading-relaxed mb-8">
+                        <p className="text-muted-foreground leading-relaxed mb-6">
                             The rammed earth walls breathe, regulate temperature naturally, and
                             age with graceful patina — a living testament to architecture in
                             harmony with land.
@@ -39,15 +39,15 @@ export function Story() {
                         </p>
                     </div>
 
-                    {/* Right: Images with parallax */}
-                    <div className="relative scroll-fade-right">
+                    {/* Right: Images */}
+                    <div className="scroll-fade-right">
                         {/* Main Image */}
-                        <div className="relative aspect-[4/5] rounded-lg overflow-hidden hover-scale">
+                        <div className="relative aspect-[4/3] rounded-lg overflow-hidden hover-scale">
                             <Image
                                 src="/images/exterior/DSC08237 copy.jpg"
                                 alt="Interior of Anpu showing rammed earth walls"
                                 fill
-                                className="object-cover parallax-image"
+                                className="object-cover"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={75}
                             />
@@ -59,14 +59,14 @@ export function Story() {
                             </Badge>
                         </div>
 
-                        {/* Overlapping Second Image */}
-                        <div className="absolute -bottom-8 -left-8 w-2/5 aspect-square rounded-lg overflow-hidden shadow-xl hidden lg:block hover-lift">
+                        {/* Second Image - now relative, not overlapping to avoid space issues */}
+                        <div className="mt-4 relative w-2/3 aspect-[4/3] rounded-lg overflow-hidden shadow-xl hidden lg:block hover-lift">
                             <Image
                                 src="/images/exterior/DSC08213 copy.jpg"
                                 alt="Detail of rammed earth texture"
                                 fill
                                 className="object-cover"
-                                sizes="200px"
+                                sizes="300px"
                                 quality={70}
                             />
                         </div>
@@ -74,7 +74,7 @@ export function Story() {
                 </div>
 
                 {/* Bottom tagline */}
-                <div className="mt-16 pt-8 border-t border-border scroll-fade-up">
+                <div className="mt-10 pt-6 border-t border-border scroll-fade-up">
                     <p className="text-center text-muted-foreground tracking-widest uppercase text-sm">
                         Sustainable · Conscious · Timeless
                     </p>
@@ -83,3 +83,4 @@ export function Story() {
         </section>
     );
 }
+

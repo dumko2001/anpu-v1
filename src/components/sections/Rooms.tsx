@@ -11,7 +11,7 @@ export function Rooms() {
 
     return (
         <>
-            <section id="rooms" className="py-24 px-6 bg-background">
+            <section id="rooms" className="py-16 px-6 bg-background">
                 <div className="max-w-7xl mx-auto">
                     {/* Section Header */}
                     <div className="mb-10 scroll-fade-up">
