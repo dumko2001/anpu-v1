@@ -8,10 +8,12 @@ import { Reviews } from "@/components/sections/Reviews";
 import { Location } from "@/components/sections/Location";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
+import { ScrollToTop } from "@/components/common/ScrollToTop";
 
 export default function Home() {
   return (
     <>
+      <ScrollToTop />
       <Header />
       <main>
         <Hero />
@@ -27,4 +29,3 @@ export default function Home() {
     </>
   );
 }
-

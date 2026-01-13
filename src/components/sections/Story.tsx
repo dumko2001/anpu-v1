@@ -1,46 +1,12 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 
-const VISION_IMAGES = [
-    { src: "/images/exterior/DSC08237 copy.jpg", alt: "Interior of Anpu", label: "Interior" },
-    { src: "/images/exterior/DSC08213 copy.jpg", alt: "Rammed earth texture", label: "Texture" },
-];
-
-const CYCLE_DURATION = 5000; // 5 seconds per image (mobile fallback)
-
 export function Story() {
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const [isHovering, setIsHovering] = useState(false);
-
-    // Auto-cycle only when NOT hovering (mobile fallback)
-    useEffect(() => {
-        if (isHovering) return; // Don't auto-cycle while hovering
-
-        const timer = setInterval(() => {
-            setCurrentIndex((prev) => (prev + 1) % VISION_IMAGES.length);
-        }, CYCLE_DURATION);
-        return () => clearInterval(timer);
-    }, [isHovering]);
-
-    // Handle tap to manually advance
-    const handleTap = () => {
-        setCurrentIndex((prev) => (prev + 1) % VISION_IMAGES.length);
-    };
-
-    // Hover handlers (desktop)
-    const handleMouseEnter = () => {
-        setIsHovering(true);
-        setCurrentIndex(1); // Show second image on hover
-    };
-
-    const handleMouseLeave = () => {
-        setIsHovering(false);
-        setCurrentIndex(0); // Return to first image
-    };
+    const [showSecond, setShowSecond] = useState(false);
 
     return (
         <section id="story" className="py-16 px-6 bg-secondary overflow-hidden">
@@ -79,52 +45,50 @@ export function Story() {
                         </p>
                     </div>
 
-                    {/* Right: Hover (desktop) + Auto-cycle (mobile) slideshow */}
+                    {/* Right: Hover/tap to reveal second image */}
                     <div
                         className="scroll-fade-right relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
-                        onClick={handleTap}
-                        onMouseEnter={handleMouseEnter}
-                        onMouseLeave={handleMouseLeave}
+                        onMouseEnter={() => setShowSecond(true)}
+                        onMouseLeave={() => setShowSecond(false)}
+                        onClick={() => setShowSecond(!showSecond)}
                     >
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={currentIndex}
-                                initial={{ opacity: 0 }}
-                                animate={{ opacity: 1 }}
-                                exit={{ opacity: 0 }}
-                                transition={{ duration: 0.6, ease: "easeInOut" }}
-                                className="absolute inset-0"
-                            >
-                                <Image
-                                    src={VISION_IMAGES[currentIndex].src}
-                                    alt={VISION_IMAGES[currentIndex].alt}
-                                    fill
-                                    className="object-cover"
-                                    sizes="(max-width: 1024px) 100vw, 50vw"
-                                    quality={75}
-                                />
-                            </motion.div>
-                        </AnimatePresence>
+                        {/* Back image (texture) */}
+                        <Image
+                            src="/images/exterior/DSC08213 copy.jpg"
+                            alt="Rammed earth texture"
+                            fill
+                            className="object-cover"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                            quality={75}
+                        />
 
-                        {/* Badge with current label */}
+                        {/* Front image (interior) - fades on hover/tap */}
+                        <motion.div
+                            className="absolute inset-0"
+                            animate={{ opacity: showSecond ? 0 : 1 }}
+                            transition={{ duration: 0.5, ease: "easeInOut" }}
+                        >
+                            <Image
+                                src="/images/exterior/DSC08237 copy.jpg"
+                                alt="Interior of Anpu"
+                                fill
+                                className="object-cover"
+                                sizes="(max-width: 1024px) 100vw, 50vw"
+                                quality={75}
+                            />
+                        </motion.div>
+
+                        {/* Badge */}
                         <Badge
                             variant="outline"
                             className="absolute bottom-4 right-4 bg-cream/90 text-charcoal border-0 z-10"
                         >
-                            {VISION_IMAGES[currentIndex].label}
+                            {showSecond ? "Earth Texture" : "Interior"}
                         </Badge>
 
-                        {/* Progress dots */}
-                        <div className="absolute bottom-4 left-4 flex gap-2 z-10">
-                            {VISION_IMAGES.map((_, idx) => (
-                                <button
-                                    key={idx}
-                                    onClick={(e) => { e.stopPropagation(); setCurrentIndex(idx); }}
-                                    className={`w-2 h-2 rounded-full transition-all ${idx === currentIndex ? "bg-cream w-6" : "bg-cream/50"
-                                        }`}
-                                    aria-label={`View image ${idx + 1}`}
-                                />
-                            ))}
+                        {/* Mobile hint */}
+                        <div className="absolute bottom-4 left-4 text-xs text-cream/70 bg-charcoal/50 backdrop-blur-sm px-2 py-1 rounded z-10 lg:hidden">
+                            Tap to explore
                         </div>
                     </div>
                 </div>
