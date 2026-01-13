@@ -12,7 +12,7 @@ export function FAQ() {
             <div className="max-w-4xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-16 text-center scroll-fade-up">
-                    <span className="font-mono text-sm text-muted-foreground">04</span>
+                    <span className="font-mono text-sm text-muted-foreground">05</span>
                     <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                         Questions
                     </h2>

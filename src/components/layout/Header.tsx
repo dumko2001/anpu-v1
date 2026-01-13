@@ -10,9 +10,10 @@ import { SITE_CONFIG } from "@/lib/constants";
 const NAV_LINKS = [
     { href: "#rooms", label: "Rooms", number: "01" },
     { href: "#story", label: "The Story", number: "02" },
-    { href: "#location", label: "Location", number: "03" },
-    { href: "#faq", label: "Questions", number: "04" },
-    { href: "#contact", label: "Book", number: "05" },
+    { href: "#gallery", label: "Gallery", number: "03" },
+    { href: "#location", label: "Location", number: "04" },
+    { href: "#faq", label: "Questions", number: "05" },
+    { href: "#contact", label: "Book", number: "06" },
 ];
 
 export function Header() {

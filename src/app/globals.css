@@ -364,6 +364,70 @@
   }
 
   /* ========================================
+     3D CARD TILT EFFECT
+     Apply to cards for premium depth feel
+     Uses CSS custom properties set via JS
+     ======================================== */
+
+  .tilt-3d {
+    transform-style: preserve-3d;
+    transition: transform 0.15s ease-out;
+  }
+
+  .tilt-3d:hover {
+    /* Fallback when JS doesn't set custom props */
+    transform: perspective(1000px) rotateX(var(--rx, 0deg)) rotateY(var(--ry, 0deg));
+  }
+
+  /* ========================================
+     MAGNETIC BUTTON EFFECT
+     Button follows cursor slightly on hover
+     Uses CSS custom props set via JS
+     ======================================== */
+
+  .magnetic-button {
+    transition: transform 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .magnetic-button:hover {
+    /* Slight follow effect - custom props set by JS */
+    transform: translate(var(--mx, 0px), var(--my, 0px));
+  }
+
+  /* ========================================
+     SMOOTH IMAGE ZOOM
+     For gallery and room cards
+     ======================================== */
+
+  .image-zoom {
+    overflow: hidden;
+  }
+
+  .image-zoom img {
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .image-zoom:hover img {
+    transform: scale(1.08);
+  }
+
+  /* ========================================
+     FOCUS RING ENHANCEMENT
+     Premium focus states for accessibility
+     ======================================== */
+
+  .focus-ring {
+    transition: box-shadow 0.2s ease;
+  }
+
+  .focus-ring:focus-visible {
+    outline: none;
+    box-shadow: 
+      0 0 0 2px var(--background),
+      0 0 0 4px var(--primary);
+  }
+
+  /* ========================================
      DECORATIVE ELEMENTS
      Heritage premium accents
      ======================================== */

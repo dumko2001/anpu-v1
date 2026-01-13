@@ -28,7 +28,7 @@ export function Location() {
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-16">
-                    <span className="font-mono text-sm text-muted-foreground">03</span>
+                    <span className="font-mono text-sm text-muted-foreground">04</span>
                     <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground">
                         Find Your Way
                     </h2>
