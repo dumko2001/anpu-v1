@@ -49,7 +49,7 @@ export function RoomModal({ room, isOpen, onClose }: RoomModalProps) {
 
     return (
         <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
-            <DialogContent className="max-w-4xl w-[90vw] p-0 gap-0 bg-card overflow-hidden rounded-xl">
+            <DialogContent className="max-w-4xl w-[90vw] max-h-[90vh] p-0 gap-0 bg-card overflow-hidden rounded-xl">
                 {/* Accessibility */}
                 <DialogTitle className="sr-only">{room.name}</DialogTitle>
                 <DialogDescription className="sr-only">
@@ -65,10 +65,10 @@ export function RoomModal({ room, isOpen, onClose }: RoomModalProps) {
                     <X className="w-5 h-5" />
                 </button>
 
-                {/* Image at top, content below - cleaner vertical layout */}
-                <div className="flex flex-col">
-                    {/* Image Section */}
-                    <div className="relative aspect-[16/9] bg-charcoal">
+                {/* Scrollable container for modal content */}
+                <div className="flex flex-col max-h-[90vh] overflow-y-auto">
+                    {/* Image Section - smaller aspect ratio for better desktop fit */}
+                    <div className="relative aspect-[2/1] md:aspect-[16/9] lg:aspect-[2.5/1] bg-charcoal flex-shrink-0">
                         <Image
                             src={activeImage}
                             alt={`${room.name} - Photo ${activeImageIndex + 1}`}

@@ -11,12 +11,11 @@ export function FAQ() {
         <section id="faq" className="py-24 px-6 bg-secondary">
             <div className="max-w-4xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-16 text-center scroll-fade-up">
+                <div className="mb-10 text-center scroll-fade-up">
                     <span className="font-mono text-sm text-muted-foreground">05</span>
                     <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                         Questions
                     </h2>
-                    <p className="mt-4 text-muted-foreground text-lg">& Answers</p>
                 </div>
 
                 {/* FAQ Accordion */}

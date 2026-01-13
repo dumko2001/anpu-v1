@@ -14,14 +14,13 @@ export function Rooms() {
             <section id="rooms" className="py-24 px-6 bg-background">
                 <div className="max-w-7xl mx-auto">
                     {/* Section Header */}
-                    <div className="mb-16 scroll-fade-up">
+                    <div className="mb-10 scroll-fade-up">
                         <span className="font-mono text-sm text-muted-foreground">01</span>
                         <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading kinetic-spread">
                             Our Rooms
                         </h2>
-                        <p className="mt-4 text-muted-foreground max-w-xl text-lg">
-                            Four unique spaces, each crafted with rammed earth walls and
-                            thoughtful design.
+                        <p className="mt-3 text-muted-foreground max-w-xl">
+                            Four spaces crafted with rammed earth walls and thoughtful design.
                         </p>
                     </div>
 

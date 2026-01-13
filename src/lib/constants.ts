@@ -22,8 +22,8 @@ export const SITE_CONFIG = {
 
     // Location
     location: {
-        name: "Near Auroville, Tamil Nadu",
-        state: "Tamil Nadu",
+        name: "Near Auroville",
+        state: "Auroville Bioregion",
         country: "India",
         coordinates: {
             lat: 12.0076,
@@ -72,7 +72,7 @@ export const ROOMS: Room[] = [
             "/images/exterior/DSC08232 copy.jpg",
             "/images/exterior/DSC08237 copy.jpg",
         ],
-        cardRotation: "-3deg",
+        cardRotation: "1.5deg",
         borderSide: "left",
     },
     {
@@ -86,7 +86,7 @@ export const ROOMS: Room[] = [
             "/images/exterior/DSC08213 copy.jpg",
             "/images/exterior/DSC08272 copy.jpg",
         ],
-        cardRotation: "2.5deg",
+        cardRotation: "-1deg",
         borderSide: "top",
     },
     {
@@ -100,7 +100,7 @@ export const ROOMS: Room[] = [
             "/images/exterior/DSC08272 copy.jpg",
             "/images/exterior/DSC08237 copy.jpg",
         ],
-        cardRotation: "-2deg",
+        cardRotation: "1deg",
         borderSide: "right",
     },
     {
@@ -114,7 +114,7 @@ export const ROOMS: Room[] = [
             "/images/exterior/DSC08237 copy.jpg",
             "/images/exterior/DSC08213 copy.jpg",
         ],
-        cardRotation: "3deg",
+        cardRotation: "-1.5deg",
         borderSide: "bottom",
     },
 ];

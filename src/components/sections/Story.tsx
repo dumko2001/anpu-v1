@@ -6,7 +6,7 @@ export function Story() {
         <section id="story" className="py-24 px-6 bg-secondary overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-16 scroll-fade-up">
+                <div className="mb-8 scroll-fade-up">
                     <span className="font-mono text-sm text-muted-foreground">02</span>
                     <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                         The Vision
@@ -22,11 +22,10 @@ export function Story() {
                         </blockquote>
 
                         <p className="text-muted-foreground text-lg leading-relaxed mb-6">
-                            Anpu was envisioned and built by the architect behind Adishakti
-                            Theatre and several landmark structures in the Auroville bioregion.
-                            Drawing from decades of experience with sustainable Tamil Nadu
-                            building traditions, every curve and corner speaks to a philosophy:
-                            that shelter should emerge from the earth it stands on.
+                            Born from the same hands that shaped Adishakti Theatre, Anpu
+                            stands as a testament to what happens when architecture listens
+                            to the land. Every wall is compressed earth—60cm thick, breathing
+                            with the seasons, cool in summer, warm in winter.
                         </p>
 
                         <p className="text-muted-foreground leading-relaxed mb-8">
@@ -75,7 +74,7 @@ export function Story() {
                 </div>
 
                 {/* Bottom tagline */}
-                <div className="mt-24 pt-8 border-t border-border scroll-fade-up">
+                <div className="mt-16 pt-8 border-t border-border scroll-fade-up">
                     <p className="text-center text-muted-foreground tracking-widest uppercase text-sm">
                         Sustainable · Conscious · Timeless
                     </p>

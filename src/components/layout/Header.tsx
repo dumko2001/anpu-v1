@@ -122,8 +122,8 @@ export function Header() {
                 </Sheet>
             </div>
 
-            {/* Scroll Progress Line */}
-            <div className={cn("h-0.5", scrolled ? "bg-border" : "bg-cream/20")}>
+            {/* Scroll Progress Line - invisible until scrolled */}
+            <div className={cn("h-0.5", scrolled ? "bg-border" : "bg-transparent")}>
                 <div
                     className="h-full bg-primary transition-all duration-150 ease-out"
                     style={{ width: `${scrollProgress}%` }}

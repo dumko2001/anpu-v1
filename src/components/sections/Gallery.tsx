@@ -88,14 +88,13 @@ export function Gallery() {
             <section id="gallery" className="py-24 px-6 bg-secondary">
                 <div className="max-w-7xl mx-auto">
                     {/* Section Header */}
-                    <div className="mb-12 scroll-fade-up">
+                    <div className="mb-8 scroll-fade-up">
                         <span className="font-mono text-sm text-muted-foreground">04</span>
                         <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                             Gallery
                         </h2>
-                        <p className="mt-4 text-muted-foreground max-w-xl text-lg">
-                            Explore our spaces through the lens — rammed earth textures,
-                            natural light, and serene surroundings.
+                        <p className="mt-3 text-muted-foreground max-w-xl">
+                            Rammed earth textures, natural light, and serene spaces.
                         </p>
                     </div>
 
