@@ -10,22 +10,36 @@ const VISION_IMAGES = [
     { src: "/images/exterior/DSC08213 copy.jpg", alt: "Rammed earth texture", label: "Texture" },
 ];
 
-const CYCLE_DURATION = 4000; // 4 seconds per image
+const CYCLE_DURATION = 5000; // 5 seconds per image (mobile fallback)
 
 export function Story() {
     const [currentIndex, setCurrentIndex] = useState(0);
+    const [isHovering, setIsHovering] = useState(false);
 
-    // Auto-cycle images
+    // Auto-cycle only when NOT hovering (mobile fallback)
     useEffect(() => {
+        if (isHovering) return; // Don't auto-cycle while hovering
+
         const timer = setInterval(() => {
             setCurrentIndex((prev) => (prev + 1) % VISION_IMAGES.length);
         }, CYCLE_DURATION);
         return () => clearInterval(timer);
-    }, []);
+    }, [isHovering]);
 
-    // Handle tap/click to manually advance
+    // Handle tap to manually advance
     const handleTap = () => {
         setCurrentIndex((prev) => (prev + 1) % VISION_IMAGES.length);
+    };
+
+    // Hover handlers (desktop)
+    const handleMouseEnter = () => {
+        setIsHovering(true);
+        setCurrentIndex(1); // Show second image on hover
+    };
+
+    const handleMouseLeave = () => {
+        setIsHovering(false);
+        setCurrentIndex(0); // Return to first image
     };
 
     return (
@@ -65,10 +79,12 @@ export function Story() {
                         </p>
                     </div>
 
-                    {/* Right: Auto-cycling slideshow */}
+                    {/* Right: Hover (desktop) + Auto-cycle (mobile) slideshow */}
                     <div
                         className="scroll-fade-right relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
                         onClick={handleTap}
+                        onMouseEnter={handleMouseEnter}
+                        onMouseLeave={handleMouseLeave}
                     >
                         <AnimatePresence mode="wait">
                             <motion.div
@@ -76,7 +92,7 @@ export function Story() {
                                 initial={{ opacity: 0 }}
                                 animate={{ opacity: 1 }}
                                 exit={{ opacity: 0 }}
-                                transition={{ duration: 0.8, ease: "easeInOut" }}
+                                transition={{ duration: 0.6, ease: "easeInOut" }}
                                 className="absolute inset-0"
                             >
                                 <Image
@@ -123,4 +139,3 @@ export function Story() {
         </section>
     );
 }
-
