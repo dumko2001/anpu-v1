@@ -2,14 +2,14 @@
 export const SITE_CONFIG = {
     name: "Anpu",
     tagline: "Rooted in Earth",
-    description: "A rammed earth retreat near Auroville",
+    description: "A cob retreat near Auroville",
 
     // Value proposition - clear offering
     offering: {
         headline: "Where stillness meets sustainable design",
-        subheadline: "Four rammed earth rooms in the Auroville bioregion",
+        subheadline: "Four cob rooms in the Auroville bioregion",
         features: [
-            "Handcrafted rammed earth architecture",
+            "Handcrafted cob architecture",
             "Natural temperature regulation",
             "Minutes from Auroville and Pondicherry",
             "Designed by the architect of Adishakti",
@@ -66,7 +66,7 @@ export const ROOMS: Room[] = [
         name: "The Suite",
         slug: "the-suite",
         description:
-            "Our most spacious room with a private kitchenette and generous veranda. The thick rammed earth walls breathe naturally, keeping the space cool by day and cozy by night. Perfect for longer stays or those who appreciate more room to spread out.",
+            "Our most spacious room with a private kitchenette and generous veranda. The thick cob walls breathe naturally, keeping the space cool by day and cozy by night. Perfect for longer stays or those who appreciate more room to spread out.",
         amenities: ["AC", "WiFi", "Hot Water", "Kitchenette", "Veranda"],
         images: [
             "/images/exterior/DSC08232 copy.jpg",
@@ -124,7 +124,7 @@ export const FAQ_ITEMS = [
     {
         question: "What makes Anpu different from other stays?",
         answer:
-            "Anpu is built entirely of rammed earth—an ancient technique where compressed earth forms walls up to 60cm thick. These walls naturally regulate temperature (no AC needed for most of the year), create a deeply calming atmosphere, and age beautifully. The property was designed by the same architect behind Adishakti Theatre.",
+            "Anpu is built entirely of cob—an ancient technique where compressed earth forms walls up to 60cm thick. These walls naturally regulate temperature (no AC needed for most of the year), create a deeply calming atmosphere, and age beautifully. The property was designed by the same architect behind Adishakti Theatre.",
     },
     {
         question: "How do I get to Anpu from Pondicherry?",

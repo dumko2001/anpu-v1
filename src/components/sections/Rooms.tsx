@@ -24,7 +24,7 @@ export function Rooms() {
                             Our Rooms
                         </h2>
                         <p className="mt-3 text-muted-foreground max-w-xl">
-                            Four spaces crafted with rammed earth walls and thoughtful design.
+                            Four spaces crafted with cob walls and thoughtful design.
                         </p>
                     </div>
 

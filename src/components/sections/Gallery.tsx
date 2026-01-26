@@ -94,7 +94,7 @@ export function Gallery() {
                             Gallery
                         </h2>
                         <p className="mt-3 text-muted-foreground max-w-xl">
-                            Rammed earth textures, natural light, and serene spaces.
+                            Cob textures, natural light, and serene spaces.
                         </p>
                     </div>
 

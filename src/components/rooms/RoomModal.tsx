@@ -252,7 +252,7 @@ export function RoomModal({ room, isOpen, onClose }: RoomModalProps) {
                                 <div className="flex items-start justify-between gap-4 mb-6">
                                     <div>
                                         <span className="text-xs text-primary font-mono uppercase tracking-wider">
-                                            Rammed Earth
+                                            Cob
                                         </span>
                                         <h2 className="font-display text-3xl lg:text-4xl text-foreground mt-1">
                                             {room.name}

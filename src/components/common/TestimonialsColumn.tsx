@@ -26,7 +26,8 @@ export function TestimonialsColumn({
     className,
     testimonials,
     duration = 15,
-}: TestimonialsColumnProps) {
+    onReviewClick,
+}: TestimonialsColumnProps & { onReviewClick?: (testimonial: Testimonial) => void }) {
     return (
         <div className={cn("overflow-hidden", className)}>
             <motion.div
@@ -39,18 +40,21 @@ export function TestimonialsColumn({
                     ease: "linear",
                     repeatType: "loop",
                 }}
-                className="flex flex-col gap-6 pb-6"
+                className="flex flex-col gap-6 pb-6 will-change-transform"
             >
                 {/* Duplicate testimonials for seamless loop */}
                 {[...Array(2)].map((_, loopIndex) => (
                     <React.Fragment key={loopIndex}>
                         {testimonials.map((testimonial, index) => (
-                            <div
+                            <motion.button
                                 key={`${loopIndex}-${index}`}
-                                className="w-full max-w-xs rounded-2xl border border-border bg-card p-6 shadow-sm"
+                                onClick={() => onReviewClick?.(testimonial)}
+                                className="w-full max-w-xs rounded-2xl border border-border bg-card p-6 shadow-sm text-left transition-all hover:scale-[1.02] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer"
+                                whileHover={{ scale: 1.02 }}
+                                whileTap={{ scale: 0.98 }}
                             >
                                 {/* Quote */}
-                                <p className="text-foreground leading-relaxed text-sm">
+                                <p className="text-foreground leading-relaxed text-sm line-clamp-6">
                                     "{testimonial.text}"
                                 </p>
 
@@ -59,13 +63,22 @@ export function TestimonialsColumn({
                                     <div className="font-medium text-foreground">
                                         {testimonial.name}
                                     </div>
-                                    {testimonial.date && (
-                                        <div className="text-xs text-muted-foreground mt-1">
-                                            {testimonial.date}
-                                        </div>
-                                    )}
+                                    <div className="flex items-center gap-2 mt-1">
+                                        {testimonial.rating && (
+                                            <div className="flex text-amber-500 text-xs gap-0.5">
+                                                {[...Array(testimonial.rating)].map((_, i) => (
+                                                    <span key={i}>★</span>
+                                                ))}
+                                            </div>
+                                        )}
+                                        {testimonial.date && (
+                                            <div className="text-xs text-muted-foreground">
+                                                {testimonial.date}
+                                            </div>
+                                        )}
+                                    </div>
                                 </div>
-                            </div>
+                            </motion.button>
                         ))}
                     </React.Fragment>
                 ))}

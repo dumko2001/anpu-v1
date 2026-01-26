@@ -24,14 +24,14 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://anpu.in"),
   title: {
-    default: "Anpu | Rammed Earth Retreat near Auroville",
+    default: "Anpu | Cob Retreat near Auroville",
     template: "%s | Anpu",
   },
   description:
-    "Experience sustainable luxury at Anpu, a boutique rammed earth retreat designed by the architect of Adishakti. 4 unique rooms near Auroville, Pondicherry.",
+    "Experience sustainable luxury at Anpu, a boutique cob retreat designed by the architect of Adishakti. 4 unique rooms near Auroville, Pondicherry.",
   keywords: [
     "Anpu",
-    "rammed earth",
+    "cob",
     "Auroville",
     "Pondicherry",
     "boutique stay",
@@ -48,23 +48,23 @@ export const metadata: Metadata = {
     locale: "en_IN",
     url: "https://anpu.in",
     siteName: "Anpu",
-    title: "Anpu | Rammed Earth Retreat near Auroville",
+    title: "Anpu | Cob Retreat near Auroville",
     description:
-      "Experience sustainable luxury at Anpu, a boutique rammed earth retreat near Auroville, Pondicherry.",
+      "Experience sustainable luxury at Anpu, a boutique cob retreat near Auroville, Pondicherry.",
     images: [
       {
         url: "/images/exterior/DSC08512 copy.jpg",
         width: 1200,
         height: 630,
-        alt: "Anpu Rammed Earth Retreat at twilight",
+        alt: "Anpu Cob Retreat at twilight",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Anpu | Rammed Earth Retreat near Auroville",
+    title: "Anpu | Cob Retreat near Auroville",
     description:
-      "Experience sustainable luxury at Anpu, a boutique rammed earth retreat near Auroville.",
+      "Experience sustainable luxury at Anpu, a boutique cob retreat near Auroville.",
     images: ["/images/exterior/DSC08512 copy.jpg"],
   },
   robots: {

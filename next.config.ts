@@ -10,6 +10,7 @@ const nextConfig: NextConfig = {
   // Optimize images for static export
   images: {
     unoptimized: true,
+    qualities: [70, 75, 90],
   },
 
   // Experimental: scroll restoration behavior

@@ -30,12 +30,12 @@ export function Story() {
                         <p className="text-muted-foreground leading-relaxed mb-4">
                             Born from the same hands that shaped Adishakti Theatre, Anpu
                             stands as a testament to what happens when architecture listens
-                            to the land. Every wall is compressed earth—60cm thick, breathing
+                            to the land. Every wall is cob—60cm thick, breathing
                             with the seasons, cool in summer, warm in winter.
                         </p>
 
                         <p className="text-muted-foreground leading-relaxed mb-6">
-                            The rammed earth walls breathe, regulate temperature naturally, and
+                            The cob walls breathe, regulate temperature naturally, and
                             age with graceful patina — a living testament to architecture in
                             harmony with land.
                         </p>
@@ -55,7 +55,7 @@ export function Story() {
                         {/* Back image (texture) */}
                         <Image
                             src="/images/exterior/DSC08213 copy.jpg"
-                            alt="Rammed earth texture"
+                            alt="Cob detail texture"
                             fill
                             className="object-cover"
                             sizes="(max-width: 1024px) 100vw, 50vw"

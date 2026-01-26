@@ -51,7 +51,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
         src: "/images/exterior/DSC08518 copy.jpg",
         alt: "Evening view of the property",
         category: "exterior",
-        caption: "Evening falls on rammed earth walls",
+        caption: "Evening falls on cob walls",
         aspect: "tall",
     },
     {
@@ -81,9 +81,9 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "detail-1",
         src: "/images/exterior/DSC08213 copy.jpg",
-        alt: "Rammed earth texture",
+        alt: "Cob texture",
         category: "details",
-        caption: "Textured rammed earth walls",
+        caption: "Textured cob walls",
         aspect: "wide",
     },
 ];

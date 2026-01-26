@@ -87,7 +87,7 @@ export function Hero() {
             {/* Background Image */}
             <Image
                 src="/images/exterior/DSC08512 copy.jpg"
-                alt="Anpu Rammed Earth Retreat at twilight"
+                alt="Anpu Cob Retreat at twilight"
                 fill
                 priority
                 className="object-cover"
