@@ -30,7 +30,7 @@ export const SITE_CONFIG = {
             lng: 79.792475,
             display: "11°59'19.6\"N 79°47'32.9\"E",
         },
-        routeNote: "Easy access via the Chennai-Cuddalore Highway. Take the turn at the Edayanchavadi Toll Booth towards Adishakti. Puducherry Airport is 6.5 km away, and the Railway Station is 10 km.",
+        routeNote: "Easy access via the Chennai-Cuddalore Highway. Take the turn at the Edayanchavadi Toll Booth towards Adishakti.",
     },
 
     // Nearby places with distances
@@ -38,7 +38,8 @@ export const SITE_CONFIG = {
         { name: "Kalarigram", distance: "75m" },
         { name: "Adishakti Theatre", distance: "50m" },
         { name: "Auroville Visitor Centre", distance: "4 km" },
-        { name: "Matrimandir", distance: "4 km" },
+        { name: "Pondicherry Airport", distance: "6.5 km" },
+        { name: "Pondicherry Railway Station", distance: "10 km" },
         { name: "Pondicherry/White Town", distance: "10 km" },
     ],
 

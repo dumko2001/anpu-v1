@@ -56,22 +56,21 @@ export function Story() {
                             onMouseLeave={() => setShowSecond(false)}
                             onClick={() => setShowSecond(!showSecond)}
                         >
-                            {/* Back image (texture) */}
+                            {/* Back image (texture/alternative) */}
                             <Image
-                                src="/images/optimized/exterior/detail-texture.jpg"
-                                alt="Cob detail texture"
+                                src="/images/optimized/exterior/azhagu-1.jpg"
+                                alt="Azhagu Room Detail"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                                 quality={75}
                             />
 
-                            {/* Front image (interior) - fades out on hover/tap */}
-                            <div
-                                className={cn(
-                                    "absolute inset-0 transition-opacity duration-700 ease-in-out",
-                                    showSecond ? "opacity-0" : "opacity-100"
-                                )}
+                            {/* Front image (Anpu Interior) - fades on hover/tap */}
+                            <motion.div
+                                className="absolute inset-0"
+                                animate={{ opacity: showSecond ? 0 : 1 }}
+                                transition={{ duration: 0.5, ease: "easeInOut" }}
                             >
                                 <Image
                                     src="/images/optimized/exterior/anbu-1.jpg"
@@ -82,7 +81,7 @@ export function Story() {
                                     quality={75}
                                     priority
                                 />
-                            </div>
+                            </motion.div>
 
                             {/* Badge */}
                             <Badge
