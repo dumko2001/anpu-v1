@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "Experience sustainable luxury at Anpu, a boutique cob retreat near Auroville, Pondicherry.",
     images: [
       {
-        url: "/images/exterior/DSC08512 copy.jpg",
+        url: "/images/optimized/exterior/hero-main.jpg",
         width: 1200,
         height: 630,
         alt: "Anpu Cob Retreat at twilight",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     title: "Anpu | Cob Retreat near Auroville",
     description:
       "Experience sustainable luxury at Anpu, a boutique cob retreat near Auroville.",
-    images: ["/images/exterior/DSC08512 copy.jpg"],
+    images: ["/images/optimized/exterior/hero-main.jpg"],
   },
   robots: {
     index: true,
@@ -85,11 +85,45 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // JSON-LD for "VacationRental" (More specific than LodgingBusiness)
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "VacationRental",
+    "name": "Anpu",
+    "description": "Experience sustainable luxury at Anpu, a boutique cob retreat designed by the architect of Adishakti. 4 unique rooms near Auroville, Pondicherry.",
+    "image": "https://anpu.in/images/optimized/exterior/hero-main.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Near Kalarigram, Edayanchavadi", // Update with precise address if available
+      "addressLocality": "Auroville Bioregion",
+      "addressRegion": "Tamil Nadu",
+      "postalCode": "605101",
+      "addressCountry": "IN"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 11.988768,
+      "longitude": 79.792475
+    },
+    "url": "https://anpu.in",
+    "priceRange": "₹₹",
+    "amenityFeature": [
+      { "@type": "LocationFeatureSpecification", "name": "Cob Architecture" },
+      { "@type": "LocationFeatureSpecification", "name": "Natural Cooling" },
+      { "@type": "LocationFeatureSpecification", "name": "WiFi" },
+      { "@type": "LocationFeatureSpecification", "name": "Kitchen Access" }
+    ]
+  };
+
   return (
     <html lang="en" className="scroll-smooth">
       <body
         className={`${inter.variable} ${cormorant.variable} ${geistMono.variable} font-sans antialiased`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         {children}
       </body>
     </html>

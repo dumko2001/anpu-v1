@@ -13,7 +13,7 @@
  * @maintainer To add images, update galleryData.ts
  */
 
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
@@ -83,6 +83,26 @@ export function Gallery() {
         setLightboxIndex(index);
     }, []);
 
+    // OPTIMIZATION: Preload all gallery images in the background after initial load
+    // This ensures that when a user switches tabs, the images are already in the browser cache,
+    // preventing the "stuck" feeling or layout shift during the animation.
+    useEffect(() => {
+        const preloadImages = async () => {
+            // Wait a moment for critical content (LCP) to finish loading
+            await new Promise((resolve) => setTimeout(resolve, 2500));
+
+            GALLERY_IMAGES.forEach((img) => {
+                const image = new window.Image();
+                image.src = img.src;
+            });
+        };
+
+        // Only run on client
+        if (typeof window !== "undefined") {
+            preloadImages();
+        }
+    }, []);
+
     return (
         <>
             <section id="gallery" className="pt-8 pb-16 px-6 bg-secondary">
@@ -107,15 +127,15 @@ export function Gallery() {
                                 className={cn(
                                     "relative px-4 py-2 rounded-full text-sm font-medium transition-colors",
                                     activeCategory === cat.id
-                                        ? "text-white" // Force white text on active primary background
-                                        : "text-muted-foreground hover:text-foreground bg-background"
+                                        ? "text-primary-foreground"
+                                        : "text-muted-foreground hover:text-foreground bg-background shadow-sm"
                                 )}
                             >
-                                {/* Animated background for active tab */}
+                                {/* Animated background for active tab - using positive z-index stacking */}
                                 <AnimatePresence>
                                     {activeCategory === cat.id && (
                                         <motion.span
-                                            className="absolute inset-0 bg-primary rounded-full -z-10"
+                                            className="absolute inset-0 bg-primary rounded-full"
                                             layoutId="activeTab"
                                             variants={tabIndicatorVariants}
                                             initial="initial"
@@ -129,27 +149,30 @@ export function Gallery() {
                                         />
                                     )}
                                 </AnimatePresence>
-                                {cat.label}
+                                <span className="relative z-10">{cat.label}</span>
                             </button>
                         ))}
                     </div>
 
+                    {/* Masonry-style Grid with varying heights */}
                     {/* Masonry-style Grid with varying heights */}
                     <motion.div
                         className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4"
                         variants={containerVariants}
                         initial="hidden"
                         animate="visible"
-                        key={activeCategory} // Re-animate on category change
+                        layout // Enable layout animations for the grid container itself
                     >
-                        {filteredImages.map((image, index) => (
-                            <GalleryItem
-                                key={image.id}
-                                image={image}
-                                index={index}
-                                onClick={() => openLightbox(index)}
-                            />
-                        ))}
+                        <AnimatePresence mode="popLayout">
+                            {filteredImages.map((image, index) => (
+                                <GalleryItem
+                                    key={image.id}
+                                    image={image}
+                                    index={index}
+                                    onClick={() => openLightbox(index)}
+                                />
+                            ))}
+                        </AnimatePresence>
                     </motion.div>
 
                     {/* Empty state */}
@@ -193,7 +216,11 @@ function GalleryItem({
 
     return (
         <motion.button
+            layout // Enable layout animation for position changes
             variants={itemVariants}
+            initial="hidden"
+            animate="visible"
+            exit="hidden" // Add exit animation
             className={cn(
                 "group relative rounded-lg overflow-hidden cursor-pointer",
                 "focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2",

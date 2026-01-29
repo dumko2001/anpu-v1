@@ -280,7 +280,7 @@ export function Reviews() {
 
                                         {/* Scrollable Text Area */}
                                         <div className="flex-1 overflow-y-auto px-8 pb-8 custom-scrollbar">
-                                            <p className="text-xl md:text-2xl leading-relaxed text-foreground/90 font-sans whitespace-pre-wrap">
+                                            <p className="text-xl md:text-2xl leading-relaxed text-foreground/90 font-serif whitespace-pre-wrap">
                                                 "{selectedReview.text}"
                                             </p>
                                         </div>

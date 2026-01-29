@@ -8,7 +8,7 @@ export function CTA() {
             {/* Background Image with parallax */}
             <div className="absolute inset-0">
                 <Image
-                    src="/images/exterior/DSC08518 copy.jpg"
+                    src="/images/optimized/exterior/annam-1.jpg"
                     alt="Anpu at evening"
                     fill
                     className="object-cover parallax-slow"

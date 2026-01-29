@@ -17,7 +17,7 @@ export const SITE_CONFIG = {
     },
 
     // Contact (replace with real number when available)
-    whatsapp: "91XXXXXXXXXX",
+    whatsapp: "918606279946",
     email: "hello@anpu.in",
 
     // Location
@@ -26,9 +26,9 @@ export const SITE_CONFIG = {
         state: "Auroville Bioregion",
         country: "India",
         coordinates: {
-            lat: 12.0076,
-            lng: 79.8520,
-            display: "12°00'27.4\"N 79°51'07.2\"E",
+            lat: 11.988768,
+            lng: 79.792475,
+            display: "11°59'19.6\"N 79°47'32.9\"E",
         },
         routeNote: "Easy access via the Chennai-Cuddalore Highway. Take the turn at the Edayanchavadi Toll Booth towards Adishakti.",
     },
@@ -67,8 +67,8 @@ export const ROOMS: Room[] = [
         name: "AZHAGU",
         slug: "azhagu",
         description:
-            "The Suite — 'Beauty'. Bharati saw beauty not as superficial, but as Shakti—power and creative energy. He celebrated the 'Modern Woman' (Pudhumai Penn) as the protector of culture and the bearer of freedom. This spacious suite is a tribute to that spirit: a place where tradition meets the freedom of expression, designed for inspiration.",
-        amenities: ["AC", "WiFi", "Hot Water", "Kitchenette", "Veranda"],
+            "Azhagu – Beauty as power. The upstairs suite with the wide veranda. The room with space to pace, think, or create. Named after Bharati's belief that beauty protects culture, art, and freedom of expression. For long stays. For artists. For anyone who needs room to breathe.",
+        amenities: ["Private Kitchen", "Mini Fridge", "Expansive Veranda", "Upstairs (First Floor)", "AC + Ceiling Fan", "Attached Bathroom", "High-speed WiFi"],
         images: [
             "/images/optimized/exterior/azhagu-1.jpg",
             "/images/optimized/exterior/azhagu-2.jpg",
@@ -78,11 +78,11 @@ export const ROOMS: Room[] = [
     },
     {
         id: "anbu",
-        name: "ANBU",
+        name: "ANPU",
         slug: "anbu",
         description:
-            "'Love'. For Bharati, Anbu was the revolutionary force that could shatter barriers of caste and creed. 'There are no castes, my child,' he wrote. This room is the heart of the home—a warm, inclusive space where boundaries dissolve and kindness prevails.",
-        amenities: ["AC", "WiFi", "Hot Water"],
+            "Anpu – Love that includes. The ground-floor room with the private veranda. The warm heart of the house. Named after Bharati's vision of love that breaks caste and gender barriers. For rest. For quiet. For feeling held.",
+        amenities: ["Private Veranda", "Ground Floor", "AC + Ceiling Fan", "Attached Bathroom", "High-speed WiFi"],
         images: [
             "/images/optimized/exterior/anbu-1.jpg",
             "/images/optimized/exterior/anbu-2.jpg",
@@ -91,32 +91,32 @@ export const ROOMS: Room[] = [
         borderSide: "top",
     },
     {
-        id: "retreat", // Kept ID for now to minimize breakage if used elsewhere, but name updated
-        name: "ANNAM",
-        slug: "annam",
-        description:
-            "'Nourishment'. Bharati fiercely believed that hunger was an insult to humanity: 'If one man goes hungry, we will destroy the world.' Annam represents deep rest, grounding, and the comfort of having one's needs met in abundance. A space to feel truly sustained.",
-        amenities: ["AC", "WiFi", "Hot Water", "Terrace"],
-        images: [
-            "/images/optimized/exterior/annam-1.jpg",
-            "/images/optimized/exterior/annam-2.jpg",
-        ],
-        cardRotation: "-1.5deg",
-        borderSide: "right",
-    },
-    {
         id: "arivu",
         name: "ARIVU",
         slug: "arivu",
         description:
-            "'Wisdom'. True Arivu, Bharati argued, wasn't just book learning but the clarity to question fear and superstition. 'Fear not,' was his mantra. This room is a sanctuary for clear thought—a clean, quiet space to unclutter the mind and find one's truth.",
-        amenities: ["AC", "WiFi", "Hot Water"],
+            "Arivu – Wisdom without fear. The minimalist ground-floor room. Designed for clarity and deep silence. Named after Bharati's call to live fearlessly, free from colonial rule and superstition. For deep sleep. For clearing your mind. For stopping.",
+        amenities: ["Ground Floor", "AC + Ceiling Fan", "Attached Bathroom", "High-speed Wi-Fi", "Womb-like Silence"],
         images: [
             "/images/optimized/exterior/arivu-1.jpg",
             "/images/optimized/exterior/arivu-2.jpg",
         ],
         cardRotation: "1deg",
         borderSide: "bottom",
+    },
+    {
+        id: "annam", // Updated ID to match name for consistency, though slug is what matters usually. Previous was 'retreat' but labeled ANNAM
+        name: "ANNAM",
+        slug: "annam",
+        description:
+            "Annam – Nourishment for the soul. The grounding ground-floor room with terrace access. Named after Bharati's demand that no one should go hungry - food, rest, and safety are human rights. For exhaustion. For recovery. For sleeping 12 hours straight.",
+        amenities: ["Terrace Access", "Ground Floor", "AC + Ceiling Fan", "Attached Bathroom", "High-speed WiFi"],
+        images: [
+            "/images/optimized/exterior/annam-1.jpg",
+            "/images/optimized/exterior/annam-2.jpg",
+        ],
+        cardRotation: "-1.5deg",
+        borderSide: "right",
     },
 ];
 
@@ -125,7 +125,7 @@ export const FAQ_ITEMS = [
     {
         question: "What makes Anpu different from other stays?",
         answer:
-            "Anpu is built entirely of cob—an ancient technique where compressed earth forms walls up to 60cm thick. These walls naturally regulate temperature (no AC needed for most of the year), create a deeply calming atmosphere, and age beautifully. The property was designed by the same architect behind Adishakti Theatre.",
+            "Anpu is built entirely of cob - an ancient technique where compressed earth forms walls up to 60cm thick. These walls naturally regulate temperature (no AC needed for most of the year), create a deeply calming atmosphere, and age beautifully. The property was designed by the same architect behind Adishakti Theatre.",
     },
     {
         question: "How do I get to Anpu from Pondicherry?",
@@ -145,7 +145,12 @@ export const FAQ_ITEMS = [
     {
         question: "Is Anpu suitable for remote work?",
         answer:
-            "Yes—we have reliable WiFi, and the quiet environment is ideal for focused work. The Suite has a dedicated workspace area. Many guests split their days between work and exploring Auroville or Pondicherry.",
+            "Yes, we have reliable WiFi, and the quiet environment is ideal for focused work. The Suite has a dedicated workspace area. Many guests split their days between work and exploring Auroville or Pondicherry.",
+    },
+    {
+        question: "What shared facilities are available?",
+        answer:
+            "All guests have access to a fully equipped common kitchen (fridge, washing machine, cooking facilities), outdoor seating surrounded by greenery, and free parking. Guests can also access the salt-water pool next door at Adishakti Theatre (₹300/hour, subject to availability).",
     },
 ];
 

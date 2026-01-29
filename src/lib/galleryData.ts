@@ -40,7 +40,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     // Exterior shots
     {
         id: "ext-1",
-        src: "/images/exterior/DSC08512 copy.jpg",
+        src: "/images/optimized/exterior/hero-main.jpg", // Was DSC08512 (18MB)
         alt: "Anpu retreat at twilight",
         category: "exterior",
         caption: "The retreat bathed in twilight hues",
@@ -48,7 +48,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     },
     {
         id: "ext-2",
-        src: "/images/exterior/DSC08518 copy.jpg",
+        src: "/images/optimized/exterior/annam-1.jpg", // Using optimized exterior shot
         alt: "Evening view of the property",
         category: "exterior",
         caption: "Evening falls on cob walls",
@@ -56,7 +56,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     },
     {
         id: "ext-3",
-        src: "/images/exterior/DSC08272 copy.jpg",
+        src: "/images/optimized/exterior/arivu-1.jpg", // Using optimized exterior shot
         alt: "Architectural details",
         category: "exterior",
         caption: "Handcrafted details",
@@ -64,15 +64,15 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     // Room shots
     {
         id: "room-1",
-        src: "/images/exterior/DSC08232 copy.jpg",
+        src: "/images/optimized/exterior/azhagu-1.jpg", // Was DSC08232 (16MB)
         alt: "The Suite interior",
         category: "rooms",
-        caption: "AZHAGU — Width and Wonder",
+        caption: "AZHAGU - Width and Wonder",
         aspect: "tall",
     },
     {
         id: "room-2",
-        src: "/images/exterior/DSC08237 copy.jpg",
+        src: "/images/optimized/exterior/anbu-1.jpg", // Was DSC08237 (16MB) - Fixed from 16MB to 1MB
         alt: "Room with natural light",
         category: "rooms",
         caption: "Morning light through wooden shutters",
@@ -80,7 +80,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     // Details
     {
         id: "detail-1",
-        src: "/images/exterior/DSC08213 copy.jpg",
+        src: "/images/optimized/exterior/detail-texture.jpg", // Renamed & moved for consistency
         alt: "Cob texture",
         category: "details",
         caption: "Textured cob walls",
