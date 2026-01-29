@@ -13,36 +13,33 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 export function Rooms() {
     const [selectedRoom, setSelectedRoom] = useState<Room | null>(null);
     const containerRef = useRef<HTMLDivElement>(null);
-    const [activeIndex, setActiveIndex] = useState(0); // Start with first room
+    const [activeIndex, setActiveIndex] = useState(0);
     const isDragging = useRef(false);
     const startX = useRef(0);
 
     // Initial setup and updates
     useGSAP(() => {
         const cards = gsap.utils.toArray<HTMLElement>(".room-card-3d");
-
-        // Calculate positions based on active index with WRAPPING
         const len = cards.length;
+
+        // Responsive Layout Config
+        const isMobile = window.innerWidth < 768;
+        const spacing = isMobile ? 260 : 320;
+        const zOffsetFactor = isMobile ? -100 : -200;
 
         cards.forEach((card, i) => {
             // Circular Difference Logic
-            // Example: active=0, len=4. 
-            // i=0 -> diff=0
-            // i=1 -> diff=1
-            // i=2 -> diff=2
-            // i=3 -> diff=3 -> becomes -1
             let diff = (i - activeIndex) % len;
-            if (diff < 0) diff += len; // ensure positive modulo first
-            if (diff > len / 2) diff -= len; // wrap around
+            if (diff < 0) diff += len;
+            if (diff > len / 2) diff -= len;
 
             const isCenter = diff === 0;
 
-            // Layout Configuration
-            const xOffset = diff * 320; // 320px spacing
-            const zOffset = isCenter ? 0 : Math.abs(diff) * -150;
-            const rotateY = isCenter ? 0 : diff * -25; // Rotate towards center
+            const xOffset = diff * spacing;
+            const zOffset = isCenter ? 0 : Math.abs(diff) * zOffsetFactor;
+            const rotateY = isCenter ? 0 : diff * -25;
             const scale = isCenter ? 1.1 : 1 - Math.abs(diff) * 0.15;
-            const opacity = 1 - Math.abs(diff) * 0.2; // Fade out further items
+            const opacity = 1 - Math.abs(diff) * 0.2;
             const zIndex = 100 - Math.abs(diff);
 
             gsap.to(card, {
@@ -86,8 +83,10 @@ export function Rooms() {
         if (!isDragging.current) return;
         isDragging.current = false;
         const diff = e.clientX - startX.current;
-        if (diff > 50) handlePrev();
-        if (diff < -50) handleNext();
+        if (Math.abs(diff) > 10) {
+            if (diff > 50) handlePrev();
+            if (diff < -50) handleNext();
+        }
     };
 
     return (
@@ -108,34 +107,10 @@ export function Rooms() {
                         </p>
                     </div>
 
-                    {/* Mobile: Grid (Unchanged) */}
-                    <div className="md:hidden grid grid-cols-1 gap-6 max-w-xl mx-auto">
-                        {ROOMS.map((room, index) => (
-                            <div key={room.id} className="group">
-                                <button
-                                    onClick={() => setSelectedRoom(room)}
-                                    className="relative w-full aspect-[4/3] overflow-hidden rounded-xl cursor-pointer text-left border border-border/50 transition-all hover:shadow-lg"
-                                >
-                                    <Image
-                                        src={room.images[0]}
-                                        alt={room.name}
-                                        fill
-                                        className="object-cover"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                    />
-                                    <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors" />
-                                    <div className="absolute bottom-4 left-4 text-white">
-                                        <h3 className="text-2xl font-display">{room.name}</h3>
-                                    </div>
-                                </button>
-                            </div>
-                        ))}
-                    </div>
-
-                    {/* Desktop: GSAP 3D Carousel */}
+                    {/* Unified 3D Carousel (Mobile & Desktop) */}
                     <div
                         ref={containerRef}
-                        className="hidden md:flex relative h-[500px] items-center justify-center perspective-[1000px] touch-none"
+                        className="relative h-[450px] md:h-[500px] flex items-center justify-center perspective-[1000px] touch-none cursor-grab active:cursor-grabbing"
                         onPointerDown={handlePointerDown}
                         onPointerUp={handlePointerUp}
                         onPointerLeave={handlePointerUp}
@@ -144,11 +119,12 @@ export function Rooms() {
                             <div
                                 key={room.id}
                                 onClick={() => handleCardClick(index, room)}
-                                className="room-card-3d absolute w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl cursor-pointer border border-white/10 bg-charcoal"
+                                className="room-card-3d absolute w-[280px] md:w-[340px] aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl cursor-pointer border border-white/10 bg-charcoal"
                                 style={{
-                                    // Initial styles to prevent flash
                                     transform: 'translateZ(-500px)',
-                                    opacity: 0
+                                    opacity: 0,
+                                    userSelect: 'none',
+                                    WebkitUserSelect: 'none'
                                 }}
                             >
                                 <Image
@@ -156,7 +132,7 @@ export function Rooms() {
                                     alt={room.name}
                                     fill
                                     className="object-cover pointer-events-none"
-                                    sizes="340px"
+                                    sizes="(max-width: 768px) 280px, 340px"
                                     priority={index === 0}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
@@ -167,7 +143,7 @@ export function Rooms() {
 
                                 <div className="absolute bottom-8 left-8">
                                     <span className="text-cream/60 font-mono text-sm">0{index + 1}</span>
-                                    <h3 className="text-3xl font-display text-white mt-1 uppercase tracking-wide">
+                                    <h3 className="text-2xl md:text-3xl font-display text-white mt-1 uppercase tracking-wide">
                                         {room.name}
                                     </h3>
                                     <div className="flex gap-2 mt-3">
@@ -182,8 +158,8 @@ export function Rooms() {
                         ))}
                     </div>
 
-                    {/* Desktop Controls */}
-                    <div className="hidden md:flex justify-center gap-4 mt-8">
+                    {/* Controls */}
+                    <div className="flex justify-center gap-4 mt-8">
                         <button
                             onClick={handlePrev}
                             className="p-3 rounded-full border border-border/50 hover:bg-muted/50 transition-colors"
@@ -209,6 +185,3 @@ export function Rooms() {
         </>
     );
 }
-
-// Separate component not strictly needed if inlining for GSAP access, 
-// as GSAP needs direct DOM refs.
