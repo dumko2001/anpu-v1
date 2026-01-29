@@ -98,7 +98,6 @@ export function Rooms() {
                 <div className="relative z-10 max-w-[1400px] mx-auto w-full">
                     {/* Section Header */}
                     <div className="mb-14 text-center scroll-fade-up">
-                        <span className="font-mono text-sm text-muted-foreground">01</span>
                         <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                             Our Rooms
                         </h2>

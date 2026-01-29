@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/lib/utils";
 
 export function Story() {
     const [showSecond, setShowSecond] = useState(false);
@@ -13,7 +14,6 @@ export function Story() {
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="mb-2 scroll-fade-up">
-                    <span className="font-mono text-sm text-muted-foreground">02</span>
                     <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                         The Vision
                     </h2>
@@ -66,11 +66,12 @@ export function Story() {
                                 quality={75}
                             />
 
-                            {/* Front image (interior) - fades on hover/tap */}
-                            <motion.div
-                                className="absolute inset-0"
-                                animate={{ opacity: showSecond ? 0 : 1 }}
-                                transition={{ duration: 0.5, ease: "easeInOut" }}
+                            {/* Front image (interior) - fades out on hover/tap */}
+                            <div
+                                className={cn(
+                                    "absolute inset-0 transition-opacity duration-700 ease-in-out",
+                                    showSecond ? "opacity-0" : "opacity-100"
+                                )}
                             >
                                 <Image
                                     src="/images/optimized/exterior/anbu-1.jpg"
@@ -79,8 +80,9 @@ export function Story() {
                                     className="object-cover"
                                     sizes="(max-width: 1024px) 100vw, 50vw"
                                     quality={75}
+                                    priority
                                 />
-                            </motion.div>
+                            </div>
 
                             {/* Badge */}
                             <Badge

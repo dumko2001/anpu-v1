@@ -49,6 +49,23 @@ export function Hero() {
             );
         }
 
+        // 3. Scroll Indicator Entrance
+        gsap.to(".scroll-indicator", {
+            opacity: 1,
+            duration: 1,
+            delay: 1.5, // Total delay relative to start
+            ease: "power2.out"
+        });
+
+        // 4. Scroll Dot Loop
+        gsap.to(".scroll-dot", {
+            y: 12,
+            opacity: 0,
+            duration: 1.5,
+            repeat: -1,
+            ease: "power1.inOut",
+        });
+
     }, { scope: containerRef });
 
     return (
@@ -120,18 +137,14 @@ export function Hero() {
                 </Badge>
             </div>
 
-            {/* Scroll Indicator (Kept as Framer Motion for simple infinite loop) */}
-            <motion.div
-                className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 2, duration: 1 }}
+            {/* Minimalist "Mouse" Scroll Indicator (GSAP) */}
+            <div
+                className="scroll-indicator absolute bottom-10 left-1/2 -translate-x-1/2 z-20 opacity-0"
             >
-                <span className="text-cream/70 text-sm tracking-widest uppercase font-sans">
-                    Scroll
-                </span>
-                <div className="w-px h-12 bg-gradient-to-b from-cream/70 to-transparent breathing" />
-            </motion.div>
+                <div className="w-[22px] h-[36px] rounded-full border-2 border-cream/30 flex justify-center pt-2">
+                    <div className="scroll-dot w-1 h-1 bg-cream rounded-full" />
+                </div>
+            </div>
         </section>
     );
 }

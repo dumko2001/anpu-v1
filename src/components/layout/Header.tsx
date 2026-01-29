@@ -8,12 +8,12 @@ import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/s
 import { SITE_CONFIG } from "@/lib/constants";
 
 const NAV_LINKS = [
-    { href: "#rooms", label: "Rooms", number: "01" },
-    { href: "#story", label: "The Story", number: "02" },
-    { href: "#gallery", label: "Gallery", number: "03" },
-    { href: "#location", label: "Location", number: "04" },
-    { href: "#faq", label: "Questions", number: "05" },
-    { href: "#contact", label: "Book", number: "06" },
+    { href: "#rooms", label: "Rooms" },
+    { href: "#story", label: "The Story" },
+    { href: "#gallery", label: "Gallery" },
+    { href: "#location", label: "Location" },
+    { href: "#faq", label: "Questions" },
+    { href: "#contact", label: "Book" },
 ];
 
 export function Header() {
@@ -86,9 +86,6 @@ export function Header() {
                                             href={link.href}
                                             className="group flex items-center gap-4 py-3 border-b border-border/50"
                                         >
-                                            <span className="text-sm text-muted-foreground font-mono w-6">
-                                                {link.number}
-                                            </span>
                                             <span className="font-display text-2xl md:text-3xl text-foreground group-hover:text-primary transition-colors">
                                                 {link.label}
                                             </span>

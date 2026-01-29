@@ -109,7 +109,6 @@ export function Gallery() {
                 <div className="max-w-7xl mx-auto">
                     {/* Section Header */}
                     <div className="mb-8 scroll-fade-up">
-                        <span className="font-mono text-sm text-muted-foreground">04</span>
                         <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                             Gallery
                         </h2>

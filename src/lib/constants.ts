@@ -30,7 +30,7 @@ export const SITE_CONFIG = {
             lng: 79.792475,
             display: "11°59'19.6\"N 79°47'32.9\"E",
         },
-        routeNote: "Easy access via the Chennai-Cuddalore Highway. Take the turn at the Edayanchavadi Toll Booth towards Adishakti.",
+        routeNote: "Easy access via the Chennai-Cuddalore Highway. Take the turn at the Edayanchavadi Toll Booth towards Adishakti. Puducherry Airport is 6.5 km away, and the Railway Station is 10 km.",
     },
 
     // Nearby places with distances
@@ -125,7 +125,7 @@ export const FAQ_ITEMS = [
     {
         question: "What makes Anpu different from other stays?",
         answer:
-            "Anpu is built entirely of cob - an ancient technique where compressed earth forms walls up to 60cm thick. These walls naturally regulate temperature (no AC needed for most of the year), create a deeply calming atmosphere, and age beautifully. The property was designed by the same architect behind Adishakti Theatre.",
+            "You'll actually sleep here. Not the shallow, restless kind of sleep you get in noisy guesthouses, the deep, uninterrupted kind. The walls are 60cm thick cob (compressed earth), so they absorb sound and stay naturally cool. Guests say they sleep 12 hours straight and wake up feeling held by the earth.",
     },
     {
         question: "How do I get to Anpu from Pondicherry?",
