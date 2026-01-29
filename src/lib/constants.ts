@@ -70,8 +70,8 @@ export const ROOMS: Room[] = [
             "The Suite — 'Beauty'. Bharati saw beauty not as superficial, but as Shakti—power and creative energy. He celebrated the 'Modern Woman' (Pudhumai Penn) as the protector of culture and the bearer of freedom. This spacious suite is a tribute to that spirit: a place where tradition meets the freedom of expression, designed for inspiration.",
         amenities: ["AC", "WiFi", "Hot Water", "Kitchenette", "Veranda"],
         images: [
-            "/images/exterior/DSC08232 copy.jpg",
-            "/images/exterior/DSC08237 copy.jpg",
+            "/images/optimized/exterior/azhagu-1.jpg",
+            "/images/optimized/exterior/azhagu-2.jpg",
         ],
         cardRotation: "1.5deg",
         borderSide: "left",
@@ -84,8 +84,8 @@ export const ROOMS: Room[] = [
             "'Love'. For Bharati, Anbu was the revolutionary force that could shatter barriers of caste and creed. 'There are no castes, my child,' he wrote. This room is the heart of the home—a warm, inclusive space where boundaries dissolve and kindness prevails.",
         amenities: ["AC", "WiFi", "Hot Water"],
         images: [
-            "/images/exterior/DSC08213 copy.jpg",
-            "/images/exterior/DSC08272 copy.jpg",
+            "/images/optimized/exterior/anbu-1.jpg",
+            "/images/optimized/exterior/anbu-2.jpg",
         ],
         cardRotation: "-1deg",
         borderSide: "top",
@@ -98,8 +98,8 @@ export const ROOMS: Room[] = [
             "'Nourishment'. Bharati fiercely believed that hunger was an insult to humanity: 'If one man goes hungry, we will destroy the world.' Annam represents deep rest, grounding, and the comfort of having one's needs met in abundance. A space to feel truly sustained.",
         amenities: ["AC", "WiFi", "Hot Water", "Terrace"],
         images: [
-            "/images/exterior/DSC08237 copy.jpg",
-            "/images/exterior/DSC08213 copy.jpg",
+            "/images/optimized/exterior/annam-1.jpg",
+            "/images/optimized/exterior/annam-2.jpg",
         ],
         cardRotation: "-1.5deg",
         borderSide: "right",
@@ -112,8 +112,8 @@ export const ROOMS: Room[] = [
             "'Wisdom'. True Arivu, Bharati argued, wasn't just book learning but the clarity to question fear and superstition. 'Fear not,' was his mantra. This room is a sanctuary for clear thought—a clean, quiet space to unclutter the mind and find one's truth.",
         amenities: ["AC", "WiFi", "Hot Water"],
         images: [
-            "/images/exterior/DSC08272 copy.jpg",
-            "/images/exterior/DSC08237 copy.jpg",
+            "/images/optimized/exterior/arivu-1.jpg",
+            "/images/optimized/exterior/arivu-2.jpg",
         ],
         cardRotation: "1deg",
         borderSide: "bottom",

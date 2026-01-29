@@ -86,13 +86,13 @@ export function Hero() {
         <section className="relative h-screen w-full overflow-hidden">
             {/* Background Image */}
             <Image
-                src="/images/exterior/DSC08512 copy.jpg"
+                src="/images/optimized/exterior/hero-main.jpg"
                 alt="Anpu Cob Retreat at twilight"
                 fill
                 priority
                 className="object-cover"
                 sizes="100vw"
-                quality={75}
+                quality={90}
                 placeholder="blur"
                 blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFgABAQEAAAAAAAAAAAAAAAAAAAUH/8QAIhAAAgEDAwUBAAAAAAAAAAAAAQIDAAQRBRIhBhMxQVFh/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAZEQEAAwEBAAAAAAAAAAAAAAABAAIDESH/2gAMAwEAAhEDEQA/AKuo6jcXOpT3U7bpJnLscY5NW9O6t1C002C1SWMxQxrGpKE8Acc0pVS0bqC9u1P/2Q=="
             />
