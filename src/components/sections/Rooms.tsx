@@ -29,7 +29,7 @@ export function Rooms() {
                     </div>
 
                     {/* Alternating Grid - creates visual rhythm */}
-                    <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 max-w-5xl mx-auto">
                         {ROOMS.map((room, index) => (
                             <RoomCard
                                 key={room.id}
@@ -60,26 +60,18 @@ function RoomCard({
     index: number;
     onClick: () => void;
 }) {
-    // Suite (index 0) is larger, others are equal smaller size
-    const colSpan = index === 0 ? "md:col-span-6" : "md:col-span-5";
-
+    // Standard size for all cards
     return (
-        <div className={cn("group", colSpan)}>
+        <div className="group">
             <button
                 onClick={onClick}
                 className={cn(
                     "relative w-full aspect-[4/3] overflow-hidden rounded-xl cursor-pointer text-left",
                     "transition-all duration-500 ease-out",
                     "hover:shadow-2xl hover:scale-[1.02]",
-                    // Turquoise border on specific side
-                    room.borderSide === "left" && "border-l-4 border-l-teal",
-                    room.borderSide === "top" && "border-t-4 border-t-teal",
-                    room.borderSide === "right" && "border-r-4 border-r-teal",
-                    room.borderSide === "bottom" && "border-b-4 border-b-teal"
+                    // Standard border for all
+                    "border border-border/50"
                 )}
-                style={{
-                    transform: `rotate(${room.cardRotation})`,
-                }}
                 aria-label={`View ${room.name}`}
             >
                 {/* Image */}

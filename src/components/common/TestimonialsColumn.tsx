@@ -29,7 +29,7 @@ export function TestimonialsColumn({
     onReviewClick,
 }: TestimonialsColumnProps & { onReviewClick?: (testimonial: Testimonial) => void }) {
     return (
-        <div className={cn("overflow-hidden", className)}>
+        <div className={cn("", className)}>
             <motion.div
                 animate={{
                     translateY: "-50%",
@@ -49,7 +49,7 @@ export function TestimonialsColumn({
                             <motion.button
                                 key={`${loopIndex}-${index}`}
                                 onClick={() => onReviewClick?.(testimonial)}
-                                className="w-full max-w-xs rounded-2xl border border-border bg-card p-6 shadow-sm text-left transition-all hover:scale-[1.02] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer"
+                                className="w-full max-w-xs rounded-2xl border border-border bg-card p-6 shadow-sm text-left transition-all hover:scale-[1.02] hover:shadow-md focus:outline-none focus:ring-2 focus:ring-primary/20 cursor-pointer relative hover:z-10"
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
                             >
