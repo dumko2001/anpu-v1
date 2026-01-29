@@ -67,6 +67,17 @@ export function Location() {
                             <p className="font-mono text-primary text-lg">
                                 <ScrambleText text={SITE_CONFIG.location.coordinates.display} />
                             </p>
+
+                            {/* Route Note */}
+                            {SITE_CONFIG.location.routeNote && (
+                                <div className="mt-6 p-4 bg-secondary/50 rounded-lg border border-border">
+                                    <p className="text-sm text-foreground leading-relaxed">
+                                        <span className="text-primary font-medium block mb-1">Getting Here</span>
+                                        {SITE_CONFIG.location.routeNote}
+                                    </p>
+                                </div>
+                            )}
+
                             <a
                                 href={`https://www.google.com/maps/dir/?api=1&destination=${lat},${lng}`}
                                 target="_blank"

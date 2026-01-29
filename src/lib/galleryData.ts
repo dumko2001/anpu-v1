@@ -67,7 +67,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
         src: "/images/exterior/DSC08232 copy.jpg",
         alt: "The Suite interior",
         category: "rooms",
-        caption: "The Suite — Spacious and serene",
+        caption: "AZHAGU — Width and Wonder",
         aspect: "tall",
     },
     {

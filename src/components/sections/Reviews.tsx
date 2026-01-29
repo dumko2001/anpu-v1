@@ -216,7 +216,15 @@ export function Reviews() {
                         <motion.div
                             className="relative w-full max-w-2xl bg-card rounded-2xl shadow-2xl overflow-hidden flex flex-col max-h-[85vh]"
                             variants={modalVariants}
-                            layoutId={`review-${selectedReview.name}`} // Attempt layout magic if possible, mostly semantic here
+                            initial="hidden"
+                            animate="visible"
+                            exit="exit"
+                            layoutId="review-modal" // Stable ID ensures the box stays while content changes
+                            layout // Animates layout changes (height/width) smoothly
+                            transition={{
+                                layout: { duration: 0.4, type: "spring", stiffness: 300, damping: 30 },
+                                opacity: { duration: 0.2 }
+                            }}
                         >
                             {/* Close Button */}
                             <button
@@ -226,50 +234,61 @@ export function Reviews() {
                                 <X className="w-5 h-5" />
                             </button>
 
-                            {/* Content container */}
+                            {/* Content container - Animate inner content changes */}
                             <div className="flex-1 overflow-hidden flex flex-col">
-                                <div className="p-8 pb-4 relative z-10">
-                                    {/* Background texture hint */}
-                                    <div className="absolute top-0 right-0 p-10 opacity-5 pointer-events-none">
-                                        <Quote className="w-32 h-32" />
-                                    </div>
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={selectedReview.name}
+                                        initial={{ opacity: 0, y: 10 }}
+                                        animate={{ opacity: 1, y: 0 }}
+                                        exit={{ opacity: 0, y: -10 }}
+                                        transition={{ duration: 0.2 }}
+                                        className="flex flex-col h-full overflow-hidden"
+                                    >
+                                        <div className="p-8 pb-4 relative z-10 shrink-0">
+                                            {/* Background texture hint */}
+                                            <div className="absolute top-0 right-0 p-10 opacity-5 pointer-events-none">
+                                                <Quote className="w-32 h-32" />
+                                            </div>
 
-                                    <div className="relative z-10 space-y-6">
-                                        {/* Header */}
-                                        <div className="flex items-start justify-between pr-10">
-                                            <div>
-                                                <h3 className="font-display text-2xl md:text-3xl text-foreground">
-                                                    {selectedReview.name}
-                                                </h3>
-                                                <div className="flex items-center gap-2 mt-2">
-                                                    <div className="flex text-amber-500 text-sm gap-0.5">
-                                                        {[...Array(selectedReview.rating || 5)].map((_, i) => (
-                                                            <span key={i}>★</span>
-                                                        ))}
+                                            <div className="relative z-10 space-y-6">
+                                                {/* Header */}
+                                                <div className="flex items-start justify-between pr-10">
+                                                    <div>
+                                                        <h3 className="font-display text-2xl md:text-3xl text-foreground">
+                                                            {selectedReview.name}
+                                                        </h3>
+                                                        <div className="flex items-center gap-2 mt-2">
+                                                            <div className="flex text-amber-500 text-sm gap-0.5">
+                                                                {[...Array(selectedReview.rating || 5)].map((_, i) => (
+                                                                    <span key={i}>★</span>
+                                                                ))}
+                                                            </div>
+                                                            {selectedReview.date && (
+                                                                <span className="text-sm text-muted-foreground">
+                                                                    • {selectedReview.date}
+                                                                </span>
+                                                            )}
+                                                        </div>
                                                     </div>
-                                                    {selectedReview.date && (
-                                                        <span className="text-sm text-muted-foreground">
-                                                            • {selectedReview.date}
-                                                        </span>
-                                                    )}
                                                 </div>
+
+                                                {/* Divider */}
+                                                <div className="w-full h-px bg-border/50" />
                                             </div>
                                         </div>
 
-                                        {/* Divider */}
-                                        <div className="w-full h-px bg-border/50" />
-                                    </div>
-                                </div>
+                                        {/* Scrollable Text Area */}
+                                        <div className="flex-1 overflow-y-auto px-8 pb-8 custom-scrollbar">
+                                            <p className="text-lg leading-relaxed text-foreground/90 font-serif whitespace-pre-wrap">
+                                                {selectedReview.text}
+                                            </p>
+                                        </div>
+                                    </motion.div>
+                                </AnimatePresence>
 
-                                {/* Scrollable Text Area */}
-                                <div className="flex-1 overflow-y-auto px-8 pb-8 custom-scrollbar">
-                                    <p className="text-lg leading-relaxed text-foreground/90 font-serif whitespace-pre-wrap">
-                                        {selectedReview.text}
-                                    </p>
-                                </div>
-
-                                {/* Navigation Footer */}
-                                <div className="p-4 border-t border-border bg-muted/30 flex items-center justify-between mt-auto z-20">
+                                {/* Navigation Footer - Stable outside the content animation */}
+                                <div className="p-4 border-t border-border bg-muted/30 flex items-center justify-between mt-auto z-20 shrink-0">
                                     <button
                                         onClick={handlePrev}
                                         className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors rounded-md hover:bg-background/50"

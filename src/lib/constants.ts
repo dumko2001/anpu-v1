@@ -30,15 +30,16 @@ export const SITE_CONFIG = {
             lng: 79.8520,
             display: "12°00'27.4\"N 79°51'07.2\"E",
         },
+        routeNote: "Easy access via the Chennai-Cuddalore Highway. Take the turn at the Edayanchavadi Toll Booth towards Adishakti.",
     },
 
     // Nearby places with distances
     nearbyPlaces: [
-        { name: "Kalarigram", distance: "500m" },
-        { name: "Adishakti Theatre", distance: "1 km" },
-        { name: "Auroville Visitor Centre", distance: "3 km" },
+        { name: "Kalarigram", distance: "75m" },
+        { name: "Adishakti Theatre", distance: "50m" },
+        { name: "Auroville Visitor Centre", distance: "4 km" },
         { name: "Matrimandir", distance: "4 km" },
-        { name: "Pondicherry Beach", distance: "12 km" },
+        { name: "Pondicherry/White Town", distance: "10 km" },
     ],
 
     // Social links
@@ -62,11 +63,11 @@ export interface Room {
 
 export const ROOMS: Room[] = [
     {
-        id: "suite",
-        name: "The Suite",
-        slug: "the-suite",
+        id: "azhagu",
+        name: "AZHAGU",
+        slug: "azhagu",
         description:
-            "Our most spacious room with a private kitchenette and generous veranda. The thick cob walls breathe naturally, keeping the space cool by day and cozy by night. Perfect for longer stays or those who appreciate more room to spread out.",
+            "The Suite — 'Beauty'. Bharati saw beauty not as superficial, but as Shakti—power and creative energy. He celebrated the 'Modern Woman' (Pudhumai Penn) as the protector of culture and the bearer of freedom. This spacious suite is a tribute to that spirit: a place where tradition meets the freedom of expression, designed for inspiration.",
         amenities: ["AC", "WiFi", "Hot Water", "Kitchenette", "Veranda"],
         images: [
             "/images/exterior/DSC08232 copy.jpg",
@@ -76,11 +77,11 @@ export const ROOMS: Room[] = [
         borderSide: "left",
     },
     {
-        id: "haven",
-        name: "The Haven",
-        slug: "the-haven",
+        id: "anbu",
+        name: "ANBU",
+        slug: "anbu",
         description:
-            "A peaceful single room where morning light filters through wooden shutters onto ochre walls. Traditional craftsmanship meets modern comfort in this cozy retreat, ideal for solo travelers or couples seeking simplicity.",
+            "'Love'. For Bharati, Anbu was the revolutionary force that could shatter barriers of caste and creed. 'There are no castes, my child,' he wrote. This room is the heart of the home—a warm, inclusive space where boundaries dissolve and kindness prevails.",
         amenities: ["AC", "WiFi", "Hot Water"],
         images: [
             "/images/exterior/DSC08213 copy.jpg",
@@ -90,11 +91,11 @@ export const ROOMS: Room[] = [
         borderSide: "top",
     },
     {
-        id: "retreat",
-        name: "The Retreat",
-        slug: "the-retreat",
+        id: "retreat", // Kept ID for now to minimize breakage if used elsewhere, but name updated
+        name: "ANNAM",
+        slug: "annam",
         description:
-            "Our corner room opens onto a private terrace where you can watch the garden come alive at dawn. For those who seek both solitude and connection with nature—this is your space to simply be.",
+            "'Nourishment'. Bharati fiercely believed that hunger was an insult to humanity: 'If one man goes hungry, we will destroy the world.' Annam represents deep rest, grounding, and the comfort of having one's needs met in abundance. A space to feel truly sustained.",
         amenities: ["AC", "WiFi", "Hot Water", "Terrace"],
         images: [
             "/images/exterior/DSC08237 copy.jpg",
@@ -104,11 +105,11 @@ export const ROOMS: Room[] = [
         borderSide: "right",
     },
     {
-        id: "sanctuary",
-        name: "The Sanctuary",
-        slug: "the-sanctuary",
+        id: "arivu",
+        name: "ARIVU",
+        slug: "arivu",
         description:
-            "Find your center in this thoughtfully designed space. The warm ochre walls and dark wood furniture create a meditative atmosphere, while the turquoise accents remind you of the nearby coast. A room for reflection.",
+            "'Wisdom'. True Arivu, Bharati argued, wasn't just book learning but the clarity to question fear and superstition. 'Fear not,' was his mantra. This room is a sanctuary for clear thought—a clean, quiet space to unclutter the mind and find one's truth.",
         amenities: ["AC", "WiFi", "Hot Water"],
         images: [
             "/images/exterior/DSC08272 copy.jpg",

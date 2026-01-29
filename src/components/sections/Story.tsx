@@ -35,9 +35,9 @@ export function Story() {
                         </p>
 
                         <p className="text-muted-foreground leading-relaxed mb-6">
-                            The cob walls breathe, regulate temperature naturally, and
-                            age with graceful patina — a living testament to architecture in
-                            harmony with land.
+                            Beyond thermal comfort, the dense earth creates a "womb-like" silence,
+                            absorbing sound and shielding you from the outside world. It is a
+                            living sanctuary that regulates humidity, temperature, and quietude naturally.
                         </p>
 
                         <p className="font-display text-lg text-foreground">
