@@ -1,89 +1,58 @@
 "use client";
 
-/**
- * Hero Section with Staggered Text Animation
- * 
- * Features:
- * - Framer Motion staggered letter reveal for "ANPU"
- * - Tagline slides up after letters complete
- * - Existing parallax and breathing effects preserved
- * - Reduced motion support via CSS
- * 
- * @maintainer Adjust STAGGER_DELAY and animation durations as needed
- */
-
-import { motion } from "framer-motion";
+import { useRef } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { SITE_CONFIG } from "@/lib/constants";
 import { FloatingParticles, ShootingStars, AmbientGlow } from "@/components/effects/HeroAmbient";
-
-/** Delay between each letter animation in seconds */
-const STAGGER_DELAY = 0.08;
-
-/** Animation variants for container (orchestrates stagger) */
-const containerVariants = {
-    hidden: {},
-    visible: {
-        transition: {
-            staggerChildren: STAGGER_DELAY,
-            delayChildren: 0.2, // Wait for image to settle
-        },
-    },
-};
-
-/** Animation variants for each letter */
-const letterVariants = {
-    hidden: {
-        opacity: 0,
-        y: 40,
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.5,
-            ease: [0.25, 0.46, 0.45, 0.94] as const,
-        },
-    },
-};
-
-/** Animation for tagline (appears after letters) */
-const taglineVariants = {
-    hidden: {
-        opacity: 0,
-        y: 20,
-    },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.6,
-            delay: STAGGER_DELAY * 4 + 0.4, // After all 4 letters + buffer
-            ease: [0.25, 0.46, 0.45, 0.94] as const,
-        },
-    },
-};
-
-/** Animation for scroll indicator */
-const scrollIndicatorVariants = {
-    hidden: {
-        opacity: 0,
-    },
-    visible: {
-        opacity: 1,
-        transition: {
-            duration: 0.8,
-            delay: STAGGER_DELAY * 4 + 0.8, // After tagline
-        },
-    },
-};
+import { motion } from "framer-motion";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
 
 const HERO_LETTERS = ["A", "N", "P", "U"];
 
 export function Hero() {
+    const containerRef = useRef<HTMLElement>(null);
+    const textRef = useRef<HTMLHeadingElement>(null);
+    const taglineRef = useRef<HTMLParagraphElement>(null);
+
+    // GSAP Text Reveal Animation
+    useGSAP(() => {
+        const tl = gsap.timeline({ delay: 0.2 });
+
+        // 1. Reveal Letters (Staggered)
+        const letters = textRef.current?.children;
+        if (letters) {
+            tl.fromTo(letters,
+                { y: 100, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1.2,
+                    stagger: 0.1,
+                    ease: "power3.out"
+                }
+            );
+        }
+
+        // 2. Reveal Tagline (Slide Up)
+        if (taglineRef.current) {
+            tl.fromTo(taglineRef.current,
+                { y: 20, opacity: 0 },
+                {
+                    y: 0,
+                    opacity: 1,
+                    duration: 1,
+                    ease: "power2.out"
+                },
+                "-=0.6" // Overlap with letter animation
+            );
+        }
+
+    }, { scope: containerRef });
+
     return (
-        <section className="relative h-screen w-full overflow-hidden">
+        <section ref={containerRef} className="relative h-screen w-full overflow-hidden">
             {/* Background Image */}
             <Image
                 src="/images/optimized/exterior/hero-main.jpg"
@@ -115,34 +84,30 @@ export function Hero() {
 
             {/* Content - z-20 to appear above effects */}
             <div className="absolute inset-0 z-20 flex flex-col items-center justify-center">
-                {/* Staggered ANPU text */}
-                <motion.h1
-                    className="hero-text font-display text-[15vw] md:text-[12vw] lg:text-[10vw] font-light tracking-tight leading-none select-none flex"
-                    variants={containerVariants}
-                    initial="hidden"
-                    animate="visible"
+
+                {/* GSAP Staggered ANPU text */}
+                <h1
+                    ref={textRef}
+                    className="hero-text font-display text-[15vw] md:text-[12vw] lg:text-[10vw] font-light tracking-tight leading-none select-none flex overflow-hidden"
                     aria-label="ANPU"
                 >
                     {HERO_LETTERS.map((letter, index) => (
-                        <motion.span
+                        <span
                             key={index}
-                            variants={letterVariants}
                             className="inline-block"
                         >
                             {letter}
-                        </motion.span>
+                        </span>
                     ))}
-                </motion.h1>
+                </h1>
 
                 {/* Tagline with delayed slide-up */}
-                <motion.p
+                <p
+                    ref={taglineRef}
                     className="mt-4 font-display text-lg md:text-xl tracking-[0.3em] uppercase text-cream/90"
-                    variants={taglineVariants}
-                    initial="hidden"
-                    animate="visible"
                 >
                     {SITE_CONFIG.tagline}
-                </motion.p>
+                </p>
             </div>
 
             {/* Location Badge */}
@@ -155,12 +120,12 @@ export function Hero() {
                 </Badge>
             </div>
 
-            {/* Scroll Indicator with fade-in animation */}
+            {/* Scroll Indicator (Kept as Framer Motion for simple infinite loop) */}
             <motion.div
                 className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
-                variants={scrollIndicatorVariants}
-                initial="hidden"
-                animate="visible"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 2, duration: 1 }}
             >
                 <span className="text-cream/70 text-sm tracking-widest uppercase font-sans">
                     Scroll

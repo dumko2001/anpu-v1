@@ -46,12 +46,11 @@ export function Header() {
                 <Link
                     href="/"
                     className={cn(
-                        "font-display text-2xl tracking-tight transition-colors duration-300",
+                        "font-display text-3xl md:text-4xl font-bold tracking-wide uppercase transition-colors duration-300",
                         scrolled ? "text-foreground" : "text-cream"
                     )}
                 >
                     {SITE_CONFIG.name}
-                    <span className="inline-block w-2 h-2 bg-teal rounded-full ml-1 align-middle" />
                 </Link>
 
                 {/* Menu Button - circular, always visible */}

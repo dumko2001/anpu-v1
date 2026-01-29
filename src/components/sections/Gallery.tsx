@@ -107,7 +107,7 @@ export function Gallery() {
                                 className={cn(
                                     "relative px-4 py-2 rounded-full text-sm font-medium transition-colors",
                                     activeCategory === cat.id
-                                        ? "text-primary-foreground"
+                                        ? "text-white" // Force white text on active primary background
                                         : "text-muted-foreground hover:text-foreground bg-background"
                                 )}
                             >

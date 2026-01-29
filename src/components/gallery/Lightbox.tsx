@@ -153,7 +153,7 @@ export function Lightbox({
                 >
                     {/* Backdrop */}
                     <motion.div
-                        className="absolute inset-0 bg-charcoal/95 backdrop-blur-sm"
+                        className="absolute inset-0 bg-charcoal/95 backdrop-blur-sm cursor-pointer"
                         onClick={onClose}
                     />
 
