@@ -33,7 +33,7 @@ export function Story() {
                                 <p>
                                     Guests come here when they need to stop performing.<br />
                                     When they want to sit on a veranda and stare at nothing.<br />
-                                    When they're tired of guesthouses that feel like summer&nbsp;camp.<br />
+                                    When they're tired of sterile rooms that could be anywhere.<br />
                                     When they need a place that doesn't ask anything of them.
                                 </p>
 
