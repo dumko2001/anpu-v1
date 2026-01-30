@@ -1,10 +1,9 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState } from "react";
 import Image from "next/image";
-import { useScroll, useTransform, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
-import { cn } from "@/lib/utils";
 
 export function Story() {
     const [showSecond, setShowSecond] = useState(false);
@@ -13,29 +12,28 @@ export function Story() {
         <section id="story" className="pt-12 pb-8 px-6 bg-secondary overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Content Grid */}
-                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
+                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-6 md:gap-12 lg:gap-20 items-start">
 
                     {/* Left: Text Content */}
-                    <div className="relative order-2 md:order-1 pt-12">
-                        {/* Static Vertical Line (No Number, No Animation) */}
-                        <div className="hidden md:block absolute top-0 left-0 w-px h-full bg-border/50" />
-
-                        <div className="scroll-fade-up relative flex flex-col gap-6 pl-8 md:pl-12">
-                            {/* Opening Statement - Hero Style (Reduced Size) */}
-                            <h3 className="font-display italic text-2xl md:text-3xl text-foreground leading-relaxed text-center lg:text-left">
-                                Four rooms in a quiet corner of the Auroville bioregion, built by the architect who designed Adishakti Theatre. He believes walls should breathe.
+                    <div className="relative order-2 md:order-1 pt-0 md:pt-12">
+                        <div className="scroll-fade-up relative flex flex-col gap-6 md:pl-12">
+                            {/* Opening Statement - Hero Style */}
+                            <h3 className="font-display italic text-xl md:text-3xl text-foreground leading-relaxed text-center md:text-left">
+                                Four rooms in a quiet corner of the Auroville bioregion, built by the architect who designed Adishakti Theatre.
+                                <br />
+                                He believes walls should breathe.
                             </h3>
 
                             {/* Body Paragraphs - Practical Details (Reduced Spacing) */}
-                            <div className="space-y-4 text-lg text-muted-foreground font-sans leading-relaxed text-left">
+                            <div className="space-y-4 text-lg text-muted-foreground font-sans leading-relaxed text-center md:text-left">
                                 <p>
                                     The rooms stay cool without AC (though it's there if you want it). The walls are thick enough to hold silence. The trees are loud. The Wi-Fi works. The insects are real.
                                 </p>
 
                                 <p>
                                     Guests come here when they need to stop performing.<br />
-                                    When they want to sit on a veranda and stare at nothing for four days.<br />
-                                    When they're tired of guesthouses that feel like summer camp.<br />
+                                    When they want to sit on a veranda and stare at nothing.<br />
+                                    When they're tired of guesthouses that feel like summer&nbsp;camp.<br />
                                     When they need a place that doesn't ask anything of them.
                                 </p>
 
@@ -48,8 +46,8 @@ export function Story() {
 
                     {/* Right: Title + Image + Closing Statement */}
                     <div className="flex flex-col gap-6 lg:-mt-4">
-                        {/* Section Header (Moved Here) */}
-                        <div className="mb-2 scroll-fade-up">
+                        {/* Section Header (Restored Position) - Centered on mobile only */}
+                        <div className="mb-2 scroll-fade-up text-center md:text-left">
                             <h2 className="font-display text-5xl md:text-6xl text-foreground kinetic-heading">
                                 The Story
                             </h2>
@@ -98,7 +96,7 @@ export function Story() {
                             </Badge>
 
                             {/* Mobile hint */}
-                            <div className="absolute bottom-4 left-4 text-xs text-cream/70 bg-charcoal/50 backdrop-blur-sm px-2 py-1 rounded z-10 lg:hidden">
+                            <div className="absolute bottom-4 left-4 text-xs text-cream/70 bg-charcoal/50 backdrop-blur-sm px-2 py-1 rounded z-10 lg:hidden pointer-events-none">
                                 Tap to explore
                             </div>
                         </div>

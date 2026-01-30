@@ -191,15 +191,29 @@ export function RoomModal({ room, isOpen, onClose }: RoomModalProps) {
                                         onDragEnd={handleDragEnd}
                                         className="absolute inset-0"
                                     >
-                                        <Image
-                                            src={activeImage}
-                                            alt={`${room.name} - Photo ${activeImageIndex + 1}`}
-                                            fill
-                                            className="object-cover"
-                                            sizes="(max-width: 1024px) 90vw, 900px"
-                                            quality={85}
-                                            priority
-                                        />
+                                        {/* Blurred Background Layer */}
+                                        <div className="absolute inset-0 z-0">
+                                            <Image
+                                                src={activeImage}
+                                                alt=""
+                                                fill
+                                                className="object-cover opacity-30 blur-xl scale-110"
+                                                quality={10}
+                                            />
+                                        </div>
+
+                                        {/* Main Image Layer (contained) */}
+                                        <div className="absolute inset-0 z-10">
+                                            <Image
+                                                src={activeImage}
+                                                alt={`${room.name} - Photo ${activeImageIndex + 1}`}
+                                                fill
+                                                className="object-contain"
+                                                sizes="(max-width: 1024px) 90vw, 900px"
+                                                quality={90}
+                                                priority
+                                            />
+                                        </div>
                                     </motion.div>
                                 </AnimatePresence>
 
@@ -208,14 +222,14 @@ export function RoomModal({ room, isOpen, onClose }: RoomModalProps) {
                                     <>
                                         <button
                                             onClick={prevImage}
-                                            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cream/10 backdrop-blur-sm flex items-center justify-center text-cream hover:bg-cream/20 transition-colors"
+                                            className="absolute left-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cream/10 backdrop-blur-sm flex items-center justify-center text-cream hover:bg-cream/20 transition-colors z-20"
                                             aria-label="Previous image"
                                         >
                                             <ChevronLeft className="w-5 h-5" />
                                         </button>
                                         <button
                                             onClick={nextImage}
-                                            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cream/10 backdrop-blur-sm flex items-center justify-center text-cream hover:bg-cream/20 transition-colors"
+                                            className="absolute right-4 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-cream/10 backdrop-blur-sm flex items-center justify-center text-cream hover:bg-cream/20 transition-colors z-20"
                                             aria-label="Next image"
                                         >
                                             <ChevronRight className="w-5 h-5" />

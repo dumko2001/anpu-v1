@@ -108,17 +108,17 @@ export function Gallery() {
             <section id="gallery" className="pt-8 pb-16 px-6 bg-secondary">
                 <div className="max-w-7xl mx-auto">
                     {/* Section Header */}
-                    <div className="mb-8 scroll-fade-up">
+                    <div className="mb-8 scroll-fade-up text-center">
                         <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
                             Gallery
                         </h2>
-                        <p className="mt-3 text-muted-foreground max-w-xl">
+                        <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
                             Cob textures, natural light, and serene spaces.
                         </p>
                     </div>
 
                     {/* Filter Tabs */}
-                    <div className="flex flex-wrap gap-2 mb-8">
+                    <div className="flex flex-wrap justify-center gap-2 mb-8">
                         {GALLERY_CATEGORIES.map((cat) => (
                             <button
                                 key={cat.id}

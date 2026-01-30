@@ -10,11 +10,11 @@ export function Location() {
         <section id="location" className="py-16 px-6 bg-background">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
-                <div className="mb-10">
+                <div className="mb-10 text-center">
                     <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground">
                         Find Your Way
                     </h2>
-                    <p className="mt-3 text-muted-foreground max-w-xl">
+                    <p className="mt-3 text-muted-foreground max-w-xl mx-auto">
                         Nestled in the bioregion near Auroville, where ancient traditions
                         meet conscious living.
                     </p>

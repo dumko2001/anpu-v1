@@ -12,7 +12,7 @@ export interface GalleryImage {
     id: string;
     src: string;
     alt: string;
-    category: "exterior" | "rooms" | "details" | "surroundings";
+    category: "exterior" | "rooms" | "details";
     /** Optional caption shown in lightbox */
     caption?: string;
     /** Aspect ratio: 'normal' (4/3), 'tall' (3/4), 'wide' (spans 2 cols) */
@@ -27,7 +27,6 @@ export const GALLERY_CATEGORIES = [
     { id: "exterior", label: "Exterior" },
     { id: "rooms", label: "Rooms" },
     { id: "details", label: "Details" },
-    { id: "surroundings", label: "Surroundings" },
 ] as const;
 
 export type GalleryCategory = typeof GALLERY_CATEGORIES[number]["id"];
@@ -110,7 +109,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
         id: "surround-1",
         src: "/anpu-images/suite/suite-porch-view.jpg",
         alt: "View from Suite Porch",
-        category: "surroundings",
+        category: "details",
         caption: "Private veranda views",
         aspect: "tall",
     },
@@ -129,6 +128,54 @@ export const GALLERY_IMAGES: GalleryImage[] = [
         category: "exterior",
         caption: "Serene night atmosphere",
         aspect: "wide",
+    },
+    {
+        id: "room-5",
+        src: "/anpu-images/suite/suite-bedroom-workspace.jpg",
+        alt: "Suite Workspace",
+        category: "rooms",
+        caption: "A dedicated space for flow",
+        aspect: "normal",
+    },
+    {
+        id: "room-6",
+        src: "/anpu-images/annam/annam-exterior-front.jpg",
+        alt: "Annam Exterior",
+        category: "rooms",
+        caption: "ANNAM - Ground floor access",
+        aspect: "normal",
+    },
+    {
+        id: "room-7",
+        src: "/anpu-images/anpu/anpu-porch.jpg",
+        alt: "Anpu Porch",
+        category: "rooms",
+        caption: "The private veranda at Anpu",
+        aspect: "tall",
+    },
+    {
+        id: "detail-2",
+        src: "/anpu-images/annam/annam-exterior-aerial.jpg",
+        alt: "Aerial View of Annam",
+        category: "details",
+        caption: "Bird's eye view of the cob structure",
+        aspect: "wide",
+    },
+    {
+        id: "detail-3",
+        src: "/anpu-images/arivu/arivu-exterior.jpg",
+        alt: "Arivu Exterior Detail",
+        category: "details",
+        caption: "Handcrafted earth walls",
+        aspect: "normal",
+    },
+    {
+        id: "detail-4",
+        src: "/anpu-images/suite/suite-exterior.jpg",
+        alt: "Suite Entrance",
+        category: "details",
+        caption: "Entrance to the upper suite",
+        aspect: "normal",
     },
 ];
 
