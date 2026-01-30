@@ -132,7 +132,7 @@ export function Rooms() {
                                     fill
                                     className="object-cover pointer-events-none"
                                     sizes="(max-width: 768px) 280px, 340px"
-                                    priority={index === 0}
+                                    priority={index <= 2}
                                 />
                                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
 

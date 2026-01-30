@@ -80,7 +80,7 @@ export function Location() {
                                 height="100%"
                                 style={{ border: 0 }}
                                 allowFullScreen
-                                loading="lazy"
+                                loading="eager"
                                 referrerPolicy="no-referrer-when-downgrade"
                                 title="Anpu location on Google Maps"
                             />

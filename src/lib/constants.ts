@@ -18,7 +18,6 @@ export const SITE_CONFIG = {
 
     // Contact (replace with real number when available)
     whatsapp: "918606279946",
-    email: "hello@anpu.in",
 
     // Location
     location: {
