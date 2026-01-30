@@ -38,9 +38,7 @@ export function CTA() {
                 </div>
 
                 {/* Contact Info */}
-                <div className="mt-16 pt-8 border-t border-cream/20 flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-cream/60">
-                    <span className="animated-underline">{SITE_CONFIG.email}</span>
-                    <span className="hidden sm:inline">·</span>
+                <div className="mt-16 pt-8 border-t border-cream/20 flex flex-col items-center justify-center gap-6 text-sm text-cream/60">
                     <span>WhatsApp preferred</span>
                 </div>
             </div>
