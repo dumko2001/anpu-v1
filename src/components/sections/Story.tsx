@@ -64,7 +64,7 @@ export function Story() {
                         >
                             {/* Back image (texture/alternative) */}
                             <Image
-                                src="/images/optimized-v2/exterior/detail-texture.jpg"
+                                src="/anpu-images/arivu/arivu-porch.jpg"
                                 alt="Azhagu Room Detail"
                                 fill
                                 className="object-cover"
@@ -79,7 +79,7 @@ export function Story() {
                                 transition={{ duration: 0.5, ease: "easeInOut" }}
                             >
                                 <Image
-                                    src="/images/optimized/exterior/anbu-1.jpg"
+                                    src="/anpu-images/anpu/anpu-bedroom.jpg"
                                     alt="Interior of Anpu"
                                     fill
                                     className="object-cover"

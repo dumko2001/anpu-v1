@@ -40,50 +40,94 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     // Exterior shots
     {
         id: "ext-1",
-        src: "/images/optimized-v2/exterior/hero-main.jpg", // Was DSC08512 (18MB)
-        alt: "Anpu retreat at twilight",
+        src: "/anpu-images/exterior/exterior-main-building-night.jpg",
+        alt: "Anpu retreat main building at night",
         category: "exterior",
-        caption: "The retreat bathed in twilight hues",
+        caption: "Main building glowing in the evening",
         aspect: "wide",
     },
     {
         id: "ext-2",
-        src: "/images/optimized-v2/exterior/annam-1.jpg", // Using optimized exterior shot
-        alt: "Evening view of the property",
+        src: "/anpu-images/exterior/exterior-garden-seating.jpg",
+        alt: "Garden seating area",
         category: "exterior",
-        caption: "Evening falls on cob walls",
-        aspect: "tall",
+        caption: "Peaceful garden seating",
+        aspect: "normal",
     },
     {
         id: "ext-3",
-        src: "/images/optimized-v2/exterior/arivu-1.jpg", // Using optimized exterior shot
-        alt: "Architectural details",
+        src: "/anpu-images/exterior/exterior-gate-entrance.jpg",
+        alt: "Entrance gate",
         category: "exterior",
-        caption: "Handcrafted details",
+        caption: "Welcome to Anpu",
+        aspect: "normal",
     },
+    {
+        id: "ext-4",
+        src: "/anpu-images/exterior/exterior-porch-garden-view.jpg",
+        alt: "View of the garden from the porch",
+        category: "exterior",
+        caption: "Lush greenery surrounding the porch",
+        aspect: "tall",
+    },
+
     // Room shots
     {
         id: "room-1",
-        src: "/images/optimized-v2/exterior/azhagu-1.jpg", // Was DSC08232 (16MB)
-        alt: "The Suite interior",
+        src: "/anpu-images/suite/suite-bedroom-ac.jpg",
+        alt: "The Suite Interior",
         category: "rooms",
-        caption: "AZHAGU - Width and Wonder",
-        aspect: "tall",
+        caption: "AZHAGU - Spacious and airy",
+        aspect: "normal",
     },
     {
         id: "room-2",
-        src: "/images/optimized-v2/exterior/anbu-1.jpg", // Was DSC08237 (16MB) - Fixed from 16MB to 1MB
-        alt: "Room with natural light",
+        src: "/anpu-images/anpu/anpu-bedroom.jpg",
+        alt: "Anpu Bedroom",
         category: "rooms",
-        caption: "Morning light through wooden shutters",
+        caption: "ANPU - Warm and inviting",
+        aspect: "normal",
     },
-    // Details
+    {
+        id: "room-3",
+        src: "/anpu-images/arivu/arivu-bedroom.jpg",
+        alt: "Arivu Bedroom",
+        category: "rooms",
+        caption: "ARIVU - Minimalist calm",
+        aspect: "normal",
+    },
+    {
+        id: "room-4",
+        src: "/anpu-images/annam/annam-bedroom.jpg",
+        alt: "Annam Bedroom",
+        category: "rooms",
+        caption: "ANNAM - Grounded comfort",
+        aspect: "normal",
+    },
+
+    // Details/Surroundings
+    {
+        id: "surround-1",
+        src: "/anpu-images/suite/suite-porch-view.jpg",
+        alt: "View from Suite Porch",
+        category: "surroundings",
+        caption: "Private veranda views",
+        aspect: "tall",
+    },
     {
         id: "detail-1",
-        src: "/images/optimized-v2/exterior/detail-texture.jpg", // Renamed & moved for consistency
-        alt: "Cob texture",
+        src: "/anpu-images/arivu/arivu-porch.jpg",
+        alt: "Arivu Porch Seating",
         category: "details",
-        caption: "Textured cob walls",
+        caption: "Quiet corners for reflection",
+        aspect: "normal",
+    },
+    {
+        id: "ext-night",
+        src: "/anpu-images/exterior/exterior-complex-night-2.jpg",
+        alt: "Night view of the complex",
+        category: "exterior",
+        caption: "Serene night atmosphere",
         aspect: "wide",
     },
 ];
