@@ -1,11 +1,11 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState, useEffect } from "react";
 import Image from "next/image";
 import { Badge } from "@/components/ui/badge";
 import { SITE_CONFIG } from "@/lib/constants";
 import { FloatingParticles, ShootingStars, AmbientGlow } from "@/components/effects/HeroAmbient";
-import { motion } from "framer-motion";
+
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
@@ -15,6 +15,15 @@ export function Hero() {
     const containerRef = useRef<HTMLElement>(null);
     const textRef = useRef<HTMLHeadingElement>(null);
     const taglineRef = useRef<HTMLParagraphElement>(null);
+
+    const [showEffects, setShowEffects] = useState(false);
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setShowEffects(true);
+        }, 500);
+        return () => clearTimeout(timer);
+    }, []);
 
     // GSAP Text Reveal Animation
     useGSAP(() => {
@@ -72,10 +81,11 @@ export function Hero() {
         <section ref={containerRef} className="relative h-screen w-full overflow-hidden">
             {/* Background Image */}
             <Image
-                src="/images/optimized/exterior/hero-main.jpg"
+                src="/images/optimized-v2/exterior/hero-main.jpg"
                 alt="Anpu Cob Retreat at twilight"
                 fill
                 priority
+                decoding="async"
                 className="object-cover"
                 sizes="100vw"
                 quality={90}
@@ -93,10 +103,14 @@ export function Hero() {
             />
 
             {/* Ambient Effects - z-10 to appear on top of gradient, below text */}
-            <div className="absolute inset-0 z-10 pointer-events-none">
-                <FloatingParticles />
-                <ShootingStars />
-                <AmbientGlow />
+            <div className={`absolute inset-0 z-10 pointer-events-none transition-opacity duration-1000 ${showEffects ? "opacity-100" : "opacity-0"}`}>
+                {showEffects && (
+                    <>
+                        <FloatingParticles />
+                        <ShootingStars />
+                        <AmbientGlow />
+                    </>
+                )}
             </div>
 
             {/* Content - z-20 to appear above effects */}

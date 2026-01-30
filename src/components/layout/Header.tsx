@@ -73,7 +73,7 @@ export function Header() {
                         <div className="flex flex-col h-full p-8">
                             {/* Logo in sheet */}
                             <div className="flex items-center justify-between mb-12">
-                                <span className="font-display text-xl text-foreground">
+                                <span className="font-display text-3xl md:text-4xl font-bold tracking-wide uppercase text-foreground">
                                     {SITE_CONFIG.name}
                                 </span>
                             </div>

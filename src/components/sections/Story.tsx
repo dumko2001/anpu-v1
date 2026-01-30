@@ -58,7 +58,7 @@ export function Story() {
                         >
                             {/* Back image (texture/alternative) */}
                             <Image
-                                src="/images/optimized/exterior/azhagu-1.jpg"
+                                src="/images/optimized-v2/exterior/detail-texture.jpg"
                                 alt="Azhagu Room Detail"
                                 fill
                                 className="object-cover"

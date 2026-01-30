@@ -8,7 +8,7 @@ export function CTA() {
             {/* Background Image with parallax */}
             <div className="absolute inset-0">
                 <Image
-                    src="/images/optimized/exterior/annam-1.jpg"
+                    src="/images/optimized-v2/exterior/hero-main.jpg"
                     alt="Anpu at evening"
                     fill
                     className="object-cover parallax-slow"
@@ -20,7 +20,7 @@ export function CTA() {
 
             {/* Content */}
             <div className="relative max-w-4xl mx-auto text-center scroll-fade-up">
-                <span className="font-mono text-sm text-cream/60">06</span>
+
                 <h2 className="font-display text-4xl md:text-5xl lg:text-6xl mt-4 text-cream kinetic-heading kinetic-spread">
                     Ready to Experience Earth?
                 </h2>
