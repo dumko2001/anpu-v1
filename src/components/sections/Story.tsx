@@ -1,8 +1,8 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { useScroll, useTransform, motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -12,43 +12,49 @@ export function Story() {
     return (
         <section id="story" className="pt-12 pb-8 px-6 bg-secondary overflow-hidden">
             <div className="max-w-7xl mx-auto">
-                {/* Section Header */}
-                <div className="mb-2 scroll-fade-up">
-                    <h2 className="font-display text-5xl md:text-6xl mt-2 text-foreground kinetic-heading">
-                        The Vision
-                    </h2>
-                </div>
-
                 {/* Content Grid */}
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-                    {/* Left: Quote and Text */}
-                    <div className="scroll-fade-up flex flex-col gap-6">
-                        {/* Opening Statement - Hero Style (Reduced Size) */}
-                        <h3 className="font-display italic text-2xl md:text-3xl text-foreground leading-relaxed text-center lg:text-left">
-                            Four rooms in a quiet corner of the Auroville bioregion, built by the architect who designed Adishakti Theatre. He believes walls should breathe.
-                        </h3>
+                <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-                        {/* Body Paragraphs - Practical Details (Reduced Spacing) */}
-                        <div className="space-y-4 text-lg text-muted-foreground font-sans leading-relaxed text-left">
-                            <p>
-                                The rooms stay cool without AC (though it's there if you want it). The walls are thick enough to hold silence. The trees are loud. The Wi-Fi works. The insects are real.
-                            </p>
+                    {/* Left: Text Content */}
+                    <div className="relative order-2 md:order-1 pt-12">
+                        {/* Static Vertical Line (No Number, No Animation) */}
+                        <div className="hidden md:block absolute top-0 left-0 w-px h-full bg-border/50" />
 
-                            <p>
-                                Guests come here when they need to stop performing.<br />
-                                When they want to sit on a veranda and stare at nothing for four days.<br />
-                                When they're tired of guesthouses that feel like summer camp.<br />
-                                When they need a place that doesn't ask anything of them.
-                            </p>
+                        <div className="scroll-fade-up relative flex flex-col gap-6 pl-8 md:pl-12">
+                            {/* Opening Statement - Hero Style (Reduced Size) */}
+                            <h3 className="font-display italic text-2xl md:text-3xl text-foreground leading-relaxed text-center lg:text-left">
+                                Four rooms in a quiet corner of the Auroville bioregion, built by the architect who designed Adishakti Theatre. He believes walls should breathe.
+                            </h3>
 
-                            <p>
-                                Each room is named after Tamil poet Subramania Bharati's definitions of love, wisdom, nourishment, and beauty. Sreenivasan built this place to mean something.
-                            </p>
+                            {/* Body Paragraphs - Practical Details (Reduced Spacing) */}
+                            <div className="space-y-4 text-lg text-muted-foreground font-sans leading-relaxed text-left">
+                                <p>
+                                    The rooms stay cool without AC (though it's there if you want it). The walls are thick enough to hold silence. The trees are loud. The Wi-Fi works. The insects are real.
+                                </p>
+
+                                <p>
+                                    Guests come here when they need to stop performing.<br />
+                                    When they want to sit on a veranda and stare at nothing for four days.<br />
+                                    When they're tired of guesthouses that feel like summer camp.<br />
+                                    When they need a place that doesn't ask anything of them.
+                                </p>
+
+                                <p>
+                                    Each room is named after Tamil poet Subramania Bharati's definitions of love, wisdom, nourishment, and beauty. Sreenivasan built this place to mean something.
+                                </p>
+                            </div>
                         </div>
                     </div>
 
-                    {/* Right: Image + Closing Statement */}
-                    <div className="flex flex-col gap-6 -mt-2 lg:-mt-4">
+                    {/* Right: Title + Image + Closing Statement */}
+                    <div className="flex flex-col gap-6 lg:-mt-4">
+                        {/* Section Header (Moved Here) */}
+                        <div className="mb-2 scroll-fade-up">
+                            <h2 className="font-display text-5xl md:text-6xl text-foreground kinetic-heading">
+                                The Story
+                            </h2>
+                        </div>
+
                         {/* Image Container */}
                         <div
                             className="scroll-fade-right relative aspect-[4/3] rounded-lg overflow-hidden cursor-pointer"
