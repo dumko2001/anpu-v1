@@ -49,15 +49,15 @@ export const metadata: Metadata = {
   authors: [{ name: "Anpu Retreat" }],
   creator: "Anpu Retreat",
   icons: {
-    icon: "/favicon.ico?v=2",
-    shortcut: "/favicon.ico?v=2",
-    apple: "/apple-icon.png?v=2",
+    icon: "/favicon.ico?v=3",
+    shortcut: "/favicon.ico?v=3",
+    apple: "/apple-icon.png?v=3",
     other: [
       {
         rel: "icon",
         type: "image/png",
         sizes: "192x192",
-        url: "/icon-192.png?v=2",
+        url: "/icon-192.png?v=3",
       },
       {
         rel: "icon",
