@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
@@ -45,12 +46,16 @@ export function Header() {
                 {/* Logo */}
                 <Link
                     href="/"
-                    className={cn(
-                        "font-display text-3xl md:text-4xl font-bold tracking-wide uppercase transition-colors duration-300",
-                        scrolled ? "text-foreground" : "text-cream"
-                    )}
+                    className="flex text-3xl md:text-4xl font-bold tracking-wide uppercase transition-colors duration-300"
                 >
-                    {SITE_CONFIG.name}
+                    <Image
+                        src="/logo/anpu-logo.png"
+                        alt={SITE_CONFIG.name}
+                        width={90}
+                        height={120}
+                        className="h-14 w-auto md:h-20 object-contain"
+                        priority
+                    />
                 </Link>
 
                 {/* Menu Button - circular, always visible */}
@@ -73,9 +78,13 @@ export function Header() {
                         <div className="flex flex-col h-full p-8">
                             {/* Logo in sheet */}
                             <div className="flex items-center justify-between mb-12">
-                                <span className="font-display text-3xl md:text-4xl font-bold tracking-wide uppercase text-foreground">
-                                    {SITE_CONFIG.name}
-                                </span>
+                                <Image
+                                    src="/logo/anpu-logo.png"
+                                    alt={SITE_CONFIG.name}
+                                    width={120}
+                                    height={160}
+                                    className="h-28 w-auto object-contain"
+                                />
                             </div>
 
                             {/* Navigation Links */}

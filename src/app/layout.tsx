@@ -48,6 +48,25 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Anpu Retreat" }],
   creator: "Anpu Retreat",
+  icons: {
+    icon: "/favicon.ico?v=2",
+    shortcut: "/favicon.ico?v=2",
+    apple: "/apple-icon.png?v=2",
+    other: [
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "192x192",
+        url: "/icon-192.png?v=2",
+      },
+      {
+        rel: "icon",
+        type: "image/png",
+        sizes: "512x512",
+        url: "/icon-512.png?v=2",
+      },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: "en_IN",
@@ -58,10 +77,10 @@ export const metadata: Metadata = {
       "Experience sustainable luxury at Anpu, a boutique cob retreat near Auroville, Pondicherry.",
     images: [
       {
-        url: "/images/optimized/exterior/hero-main.jpg",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Anpu Cob Retreat at twilight",
+        alt: "Anpu Cob Retreat",
       },
     ],
   },
@@ -70,7 +89,7 @@ export const metadata: Metadata = {
     title: "Anpu | Cob Retreat near Auroville",
     description:
       "Experience sustainable luxury at Anpu, a boutique cob retreat near Auroville.",
-    images: ["/images/optimized/exterior/hero-main.jpg"],
+    images: ["/og-image.jpg"],
   },
   robots: {
     index: true,
