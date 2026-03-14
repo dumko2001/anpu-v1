@@ -40,7 +40,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "ext-1",
         src: "/anpu-images/exterior/exterior-main-building-night.jpg",
-        alt: "Anpu retreat main building at night",
+        alt: "Anpu cob retreat main building illuminated at night, Edayanchavadi near Auroville",
         category: "exterior",
         caption: "Main building glowing in the evening",
         aspect: "wide",
@@ -48,7 +48,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "ext-2",
         src: "/anpu-images/exterior/exterior-garden-seating.jpg",
-        alt: "Garden seating area",
+        alt: "Outdoor garden seating area at Anpu cob retreat, Auroville bioregion, Tamil Nadu",
         category: "exterior",
         caption: "Peaceful garden seating",
         aspect: "normal",
@@ -56,7 +56,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "ext-3",
         src: "/anpu-images/exterior/exterior-gate-entrance.jpg",
-        alt: "Entrance gate",
+        alt: "Entrance gate to Anpu cob retreat near Kalarigram and Adishakti Theatre, Auroville",
         category: "exterior",
         caption: "Welcome to Anpu",
         aspect: "normal",
@@ -64,7 +64,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "ext-4",
         src: "/anpu-images/exterior/exterior-porch-garden-view.jpg",
-        alt: "View of the garden from the porch",
+        alt: "Tropical green garden view from the porch at Anpu cob retreat near Pondicherry",
         category: "exterior",
         caption: "Lush greenery surrounding the porch",
         aspect: "tall",
@@ -74,7 +74,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "room-1",
         src: "/anpu-images/suite/suite-bedroom-ac.jpg",
-        alt: "The Suite Interior",
+        alt: "AZHAGU suite interior — spacious cob room with AC at Anpu retreat near Auroville",
         category: "rooms",
         caption: "AZHAGU - Spacious and airy",
         aspect: "normal",
@@ -82,7 +82,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "room-2",
         src: "/anpu-images/anpu/anpu-bedroom.jpg",
-        alt: "Anpu Bedroom",
+        alt: "ANPU room bedroom — earth-walled cob room with natural cooling at Anpu retreat",
         category: "rooms",
         caption: "ANPU - Warm and inviting",
         aspect: "normal",
@@ -90,7 +90,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "room-3",
         src: "/anpu-images/arivu/arivu-bedroom.jpg",
-        alt: "Arivu Bedroom",
+        alt: "ARIVU room bedroom — minimalist cob room designed for deep silence at Anpu retreat",
         category: "rooms",
         caption: "ARIVU - Minimalist calm",
         aspect: "normal",
@@ -98,7 +98,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "room-4",
         src: "/anpu-images/annam/annam-bedroom.jpg",
-        alt: "Annam Bedroom",
+        alt: "ANNAM room bedroom — grounded cob room with terrace access at Anpu retreat near Pondicherry",
         category: "rooms",
         caption: "ANNAM - Grounded comfort",
         aspect: "normal",
@@ -108,7 +108,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "surround-1",
         src: "/anpu-images/suite/suite-porch-view.jpg",
-        alt: "View from Suite Porch",
+        alt: "Green view from AZHAGU suite's expansive veranda at Anpu cob retreat near Auroville",
         category: "details",
         caption: "Private veranda views",
         aspect: "tall",
@@ -116,7 +116,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "detail-1",
         src: "/anpu-images/arivu/arivu-porch.jpg",
-        alt: "Arivu Porch Seating",
+        alt: "ARIVU room shaded porch seating — quiet outdoor corner at Anpu retreat, Auroville bioregion",
         category: "details",
         caption: "Quiet corners for reflection",
         aspect: "normal",
@@ -124,7 +124,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "ext-night",
         src: "/anpu-images/exterior/exterior-complex-night-2.jpg",
-        alt: "Night view of the complex",
+        alt: "Anpu cob retreat complex at night — peaceful eco accommodation near Auroville and Pondicherry",
         category: "exterior",
         caption: "Serene night atmosphere",
         aspect: "wide",
@@ -132,7 +132,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "room-5",
         src: "/anpu-images/suite/suite-bedroom-workspace.jpg",
-        alt: "Suite Workspace",
+        alt: "AZHAGU suite dedicated workspace — ideal for remote work and artist retreats near Auroville",
         category: "rooms",
         caption: "A dedicated space for flow",
         aspect: "normal",
@@ -140,7 +140,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "room-6",
         src: "/anpu-images/annam/annam-exterior-front.jpg",
-        alt: "Annam Exterior",
+        alt: "ANNAM room exterior front view — ground floor cob room with terrace at Anpu retreat",
         category: "rooms",
         caption: "ANNAM - Ground floor access",
         aspect: "normal",
@@ -148,7 +148,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "room-7",
         src: "/anpu-images/anpu/anpu-porch.jpg",
-        alt: "Anpu Porch",
+        alt: "ANPU room private veranda — secluded porch at Anpu cob retreat near Auroville",
         category: "rooms",
         caption: "The private veranda at Anpu",
         aspect: "tall",
@@ -156,7 +156,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "detail-2",
         src: "/anpu-images/annam/annam-exterior-aerial.jpg",
-        alt: "Aerial View of Annam",
+        alt: "Aerial view of ANNAM room's handcrafted cob structure at Anpu retreat, Auroville bioregion",
         category: "details",
         caption: "Bird's eye view of the cob structure",
         aspect: "wide",
@@ -164,7 +164,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "detail-3",
         src: "/anpu-images/arivu/arivu-exterior.jpg",
-        alt: "Arivu Exterior Detail",
+        alt: "ARIVU room exterior — handcrafted earth cob walls at Anpu retreat near Pondicherry",
         category: "details",
         caption: "Handcrafted earth walls",
         aspect: "normal",
@@ -172,7 +172,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     {
         id: "detail-4",
         src: "/anpu-images/suite/suite-exterior.jpg",
-        alt: "Suite Entrance",
+        alt: "AZHAGU suite entrance — stairway to upstairs cob suite at Anpu retreat near Auroville",
         category: "details",
         caption: "Entrance to the upper suite",
         aspect: "normal",

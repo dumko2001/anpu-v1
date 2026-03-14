@@ -9,10 +9,31 @@ import { Location } from "@/components/sections/Location";
 import { FAQ } from "@/components/sections/FAQ";
 import { CTA } from "@/components/sections/CTA";
 import { ScrollToTop } from "@/components/common/ScrollToTop";
+import { FAQ_ITEMS } from "@/lib/constants";
 
 export default function Home() {
+  // FAQPage JSON-LD — enables Google featured snippets, voice search answers,
+  // and citation by AI engines (ChatGPT, Perplexity, Gemini).
+  // This is the #1 AEO (Answer Engine Optimization) signal for this site.
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQ_ITEMS.map((item) => ({
+      "@type": "Question",
+      "name": item.question,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": item.answer,
+      },
+    })),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <ScrollToTop />
       <Header />
       <main>

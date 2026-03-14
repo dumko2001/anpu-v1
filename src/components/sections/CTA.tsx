@@ -9,7 +9,7 @@ export function CTA() {
             <div className="absolute inset-0">
                 <Image
                     src="/images/optimized-v2/exterior/hero-main.jpg"
-                    alt="Anpu at evening"
+                    alt="Anpu cob retreat main building at evening light, Auroville bioregion, Tamil Nadu"
                     fill
                     className="object-cover parallax-slow"
                     sizes="100vw"

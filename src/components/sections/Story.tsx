@@ -63,7 +63,7 @@ export function Story() {
                             {/* Back image (texture/alternative) */}
                             <Image
                                 src="/anpu-images/arivu/arivu-porch.jpg"
-                                alt="Azhagu Room Detail"
+                                alt="ARIVU room shaded porch seating at Anpu cob retreat, Auroville bioregion"
                                 fill
                                 className="object-cover"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
@@ -78,7 +78,7 @@ export function Story() {
                             >
                                 <Image
                                     src="/anpu-images/anpu/anpu-bedroom.jpg"
-                                    alt="Interior of Anpu"
+                                    alt="ANPU room interior — handcrafted cob walls and natural materials at Anpu retreat near Auroville"
                                     fill
                                     className="object-cover"
                                     sizes="(max-width: 1024px) 100vw, 50vw"

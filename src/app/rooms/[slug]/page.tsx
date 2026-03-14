@@ -41,6 +41,9 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       "Anpu retreat",
       subtitle,
     ],
+    alternates: {
+      canonical: `${SITE_URL}/rooms/${slug}/`,
+    },
     openGraph: {
       title: `${room.name} — ${subtitle} | Anpu Cob Retreat`,
       description: `${room.name} at Anpu cob retreat near Auroville, Pondicherry. ${room.description.slice(0, 120)}`,

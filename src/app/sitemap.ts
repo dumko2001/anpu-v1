@@ -4,40 +4,18 @@ import { ROOMS, SITE_URL } from '@/lib/constants';
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const mainRoutes: MetadataRoute.Sitemap = [
+    // NOTE: Hash-fragment URLs like /#rooms, /#faq are NOT valid sitemap entries.
+    // Search engines ignore fragment identifiers entirely. Only list real crawlable pages.
+    const homepageRoute: MetadataRoute.Sitemap = [
         {
             url: `${SITE_URL}/`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 1.0,
         },
-        {
-            url: `${SITE_URL}/#rooms`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${SITE_URL}/#location`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.8,
-        },
-        {
-            url: `${SITE_URL}/#story`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.7,
-        },
-        {
-            url: `${SITE_URL}/#faq`,
-            lastModified: new Date(),
-            changeFrequency: 'monthly',
-            priority: 0.7,
-        },
     ];
 
-    // Individual room pages — higher priority than hash anchors
+    // Individual room pages — Google crawls these with high priority for rich results
     const roomRoutes: MetadataRoute.Sitemap = ROOMS.map((room) => ({
         url: `${SITE_URL}/rooms/${room.slug}/`,
         lastModified: new Date(),
@@ -45,5 +23,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.9,
     }));
 
-    return [...mainRoutes, ...roomRoutes];
+    return [...homepageRoute, ...roomRoutes];
 }
