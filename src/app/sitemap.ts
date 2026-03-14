@@ -1,48 +1,45 @@
 import { MetadataRoute } from 'next';
-import { ROOMS } from '@/lib/constants';
+import { ROOMS, SITE_URL } from '@/lib/constants';
 
 export const dynamic = 'force-static';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = 'https://anpu.in';
-
-    // Main page routes (hash anchors are not true URLs but included for discoverability)
     const mainRoutes: MetadataRoute.Sitemap = [
         {
-            url: `${baseUrl}/`,
+            url: `${SITE_URL}/`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 1.0,
         },
         {
-            url: `${baseUrl}/#rooms`,
+            url: `${SITE_URL}/#rooms`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/#location`,
+            url: `${SITE_URL}/#location`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.8,
         },
         {
-            url: `${baseUrl}/#story`,
+            url: `${SITE_URL}/#story`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.7,
         },
         {
-            url: `${baseUrl}/#faq`,
+            url: `${SITE_URL}/#faq`,
             lastModified: new Date(),
             changeFrequency: 'monthly',
             priority: 0.7,
         },
     ];
 
-    // Individual room pages
+    // Individual room pages — higher priority than hash anchors
     const roomRoutes: MetadataRoute.Sitemap = ROOMS.map((room) => ({
-        url: `${baseUrl}/rooms/${room.slug}/`,
+        url: `${SITE_URL}/rooms/${room.slug}/`,
         lastModified: new Date(),
         changeFrequency: 'monthly' as const,
         priority: 0.9,

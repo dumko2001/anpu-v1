@@ -1,3 +1,6 @@
+// Canonical site URL — change here if domain changes
+export const SITE_URL = "https://anpustay.com";
+
 // Site constants - single source of truth for content
 export const SITE_CONFIG = {
     name: "Anpu",
@@ -173,6 +176,45 @@ export const AMENITY_ICONS: Record<string, string> = {
     Veranda: "TreePalm",
     Terrace: "Sun",
 };
+
+/**
+ * All property images — the single source of truth.
+ * Used in JSON-LD schema and anywhere a full image list is needed.
+ * All paths are relative to /public (served at the root URL).
+ */
+export const ALL_PROPERTY_IMAGES = [
+    // Hero / hero variants
+    "/images/optimized/exterior/hero-main.jpg",
+    // Exterior
+    "/anpu-images/exterior/exterior-main-building-night.jpg",
+    "/anpu-images/exterior/exterior-complex-night.jpg",
+    "/anpu-images/exterior/exterior-complex-night-2.jpg",
+    "/anpu-images/exterior/exterior-garden-seating.jpg",
+    "/anpu-images/exterior/exterior-gate-entrance.jpg",
+    "/anpu-images/exterior/exterior-porch-garden-view.jpg",
+    // AZHAGU (Suite)
+    "/anpu-images/suite/suite-bedroom-ac.jpg",
+    "/anpu-images/suite/suite-bedroom-workspace.jpg",
+    "/anpu-images/suite/suite-porch-view.jpg",
+    "/anpu-images/suite/suite-exterior.jpg",
+    "/anpu-images/suite/suite-bathroom.jpg",
+    // ANPU room
+    "/anpu-images/anpu/anpu-bedroom.jpg",
+    "/anpu-images/anpu/anpu-porch.jpg",
+    "/anpu-images/anpu/anpu-exterior-night.jpg",
+    "/anpu-images/anpu/anpu-bathroom.jpg",
+    // ARIVU room
+    "/anpu-images/arivu/arivu-bedroom.jpg",
+    "/anpu-images/arivu/arivu-exterior.jpg",
+    "/anpu-images/arivu/arivu-porch.jpg",
+    "/anpu-images/arivu/arivu-exterior-night.jpg",
+    "/anpu-images/arivu/arivu-bathroom.jpg",
+    // ANNAM room
+    "/anpu-images/annam/annam-bedroom.jpg",
+    "/anpu-images/annam/annam-exterior-front.jpg",
+    "/anpu-images/annam/annam-exterior-aerial.jpg",
+    "/anpu-images/annam/annam-bathroom.jpg",
+];
 
 // WhatsApp helper
 export function getWhatsAppUrl(roomName?: string): string {

@@ -1,4 +1,4 @@
-import { ROOMS, getWhatsAppUrl, SITE_CONFIG } from "@/lib/constants";
+import { ROOMS, getWhatsAppUrl, SITE_CONFIG, SITE_URL } from "@/lib/constants";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -44,10 +44,10 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     openGraph: {
       title: `${room.name} — ${subtitle} | Anpu Cob Retreat`,
       description: `${room.name} at Anpu cob retreat near Auroville, Pondicherry. ${room.description.slice(0, 120)}`,
-      url: `https://anpu.in/rooms/${slug}/`,
+      url: `${SITE_URL}/rooms/${slug}/`,
       images: [
         {
-          url: `https://anpu.in${room.images[0]}`,
+          url: `${SITE_URL}${room.images[0]}`,
           alt: `${room.name} at Anpu Cob Retreat near Auroville`,
         },
       ],
@@ -66,16 +66,16 @@ export default async function RoomPage({ params }: Props) {
   const roomJsonLd = {
     "@context": "https://schema.org",
     "@type": "Accommodation",
-    "@id": `https://anpu.in/rooms/${slug}/#room`,
+    "@id": `${SITE_URL}/rooms/${slug}/#room`,
     "name": room.name,
     "description": room.description,
-    "url": `https://anpu.in/rooms/${slug}/`,
-    "image": room.images.map((img) => `https://anpu.in${img}`),
+    "url": `${SITE_URL}/rooms/${slug}/`,
+    "image": room.images.map((img) => `${SITE_URL}${img}`),
     "containedInPlace": {
       "@type": "VacationRental",
-      "@id": "https://anpu.in/#vacation-rental",
+      "@id": `${SITE_URL}/#vacation-rental`,
       "name": "Anpu",
-      "url": "https://anpu.in",
+      "url": SITE_URL,
     },
     "amenityFeature": room.amenities.map((amenity) => ({
       "@type": "LocationFeatureSpecification",
@@ -100,19 +100,19 @@ export default async function RoomPage({ params }: Props) {
         "@type": "ListItem",
         "position": 1,
         "name": "Anpu",
-        "item": "https://anpu.in/",
+        "item": `${SITE_URL}/`,
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Rooms",
-        "item": "https://anpu.in/#rooms",
+        "item": `${SITE_URL}/#rooms`,
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": room.name,
-        "item": `https://anpu.in/rooms/${slug}/`,
+        "item": `${SITE_URL}/rooms/${slug}/`,
       },
     ],
   };
