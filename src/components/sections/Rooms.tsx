@@ -128,7 +128,7 @@ export function Rooms() {
                             >
                                 <Image
                                     src={room.images[0]}
-                                    alt={room.name}
+                                    alt={`${room.name} — cob room at Anpu stay near Auroville, Pondicherry`}
                                     fill
                                     className="object-cover pointer-events-none"
                                     sizes="(max-width: 768px) 280px, 340px"
